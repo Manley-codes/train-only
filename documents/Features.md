@@ -116,6 +116,30 @@
 - Disputed counts always resolve to the app's logged history
 
 ---
+## Pillar 7 — Trainer Sustainability (The Overdrive Trap)
+
+**Trainer can:**
+- Enter monthly personal expenses and income goals
+- Set a maximum number of sessions per week
+- Set their current session rate per client
+- View a sustainability dashboard showing earnings vs expenses
+
+**AI Agent (future):**
+- Calculate the minimum monthly earnings needed based on personal expenses
+- Recommend how many clients and sessions are needed to hit income goals
+- Advise on session pricing based on location, experience level,
+  market rates, and time of year
+- Warn when the trainer is approaching or in the overdrive zone
+- Suggest when to raise rates or lock in longer packages ahead of slow seasons
+- Flag when the trainer may be undercharging relative to their market
+
+**Notes:**
+- Personal financial data is sensitive — security and trust are essential
+  before this feature is introduced to users
+- Phase 1 will be manual input with basic calculations
+- AI pricing intelligence added in Stage 5
+
+---
 
 ## App Screens
 
