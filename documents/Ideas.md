@@ -31,7 +31,7 @@ The trainer's client. Has a limited, read-focused view of their own data only.
 
 ---
 
-## The Six Core Problems
+## The Seven Core Problems
 
 These pillars are derived from real problems experienced as a working personal trainer.
 
@@ -43,6 +43,7 @@ These pillars are derived from real problems experienced as a working personal t
 | 4 | Client Acquisition | Expensive ads, poor ROI, no guidance on outreach messaging |
 | 5 | Session Transparency | Clients unaware of package terms and expiration rules |
 | 6 | Session Tracking | Disputes over remaining sessions, no single source of truth |
+| 7 | Trainer Sustainability | Trainers overwork, undercharge, and lack clear income targets |
 
 ---
 
