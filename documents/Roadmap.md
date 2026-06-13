@@ -30,16 +30,30 @@ When iOS is added later it connects to the same backend. No rebuilding the logic
 
 ## Build Stages
 
-### Stage 1 — Blueprint (Current)
-- Define all features
-- Design database tables on paper
-- Sketch app screens (wireframes)
-- Set up GitHub repo and IntelliJ project structure
+### Stage 1 — Blueprint
+Status: In Progress
+
+- [x] Define core app vision
+- [x] Define key feature pillars
+- [x] Design first database tables on paper
+- [x] Set up GitHub repo and IntelliJ project structure
+- [x] Create database folder with schema, seed, and test query files
+- [ ] Sketch app screens (wireframes)
 
 ### Stage 2 — Database Foundation
-- Learn and set up MySQL
-- Create core tables: Clients, Sessions, WorkoutPlans, Payments, Packages
-- Practice CRUD operations (Create, Read, Update, Delete)
+Status: In Progress
+
+- [x] Learn basic MySQL Workbench flow
+- [x] Create train_only_db database
+- [x] Create trainers table
+- [x] Create clients table with trainer relationship
+- [x] Create packages table with client relationship
+- [x] Add initial seed data for trainer, client, and package
+- [x] Add first test queries for joined data
+- [ ] Create sessions table
+- [ ] Create payments table
+- [ ] Create workout plan tables
+- [ ] Practice CRUD operations (Create, Read, Update, Delete)
 
 ### Stage 3 — Android App (Core Trainer Features)
 - Set up Android Studio

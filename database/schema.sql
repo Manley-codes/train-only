@@ -43,3 +43,49 @@ CREATE TABLE IF NOT EXISTS clients (
                               FOREIGN KEY (trainer_id)
                               REFERENCES trainers(trainer_id)
 );
+-- ================================================
+-- TABLE 3: packages
+-- A package is a block of sessions purchased by a client.
+-- Remaining sessions will be calculated from session history.
+-- ================================================
+
+CREATE TABLE IF NOT EXISTS packages (
+                                        package_id      INT            AUTO_INCREMENT PRIMARY KEY,
+                                        client_id       INT            NOT NULL,
+                                        sessions_total  INT            NOT NULL,
+                                        purchase_date   DATE           NOT NULL,
+                                        expiration_date DATE           NOT NULL,
+                                        package_cost    DECIMAL(10, 2) NOT NULL,
+    locked_rate     BOOLEAN        NOT NULL DEFAULT FALSE,
+    status          VARCHAR(20)    NOT NULL DEFAULT 'active',
+    created_at      DATETIME       DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT fk_packages_clients
+    FOREIGN KEY (client_id)
+    REFERENCES clients(client_id)
+    );
+-- ================================================
+-- TABLE 4: sessions
+-- A scheduled training appointment for one client.
+-- Completed sessions will be used to calculate remaining package sessions.
+-- ================================================
+
+CREATE TABLE IF NOT EXISTS sessions (
+                                        session_id       INT          AUTO_INCREMENT PRIMARY KEY,
+                                        client_id        INT          NOT NULL,
+                                        package_id       INT          NOT NULL,
+                                        scheduled_at     DATETIME     NOT NULL,
+                                        duration_minutes INT          NOT NULL DEFAULT 60,
+                                        location         VARCHAR(255),
+    status           VARCHAR(20)  NOT NULL DEFAULT 'scheduled',
+    notes            TEXT,
+    created_at       DATETIME     DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT fk_sessions_clients
+    FOREIGN KEY (client_id)
+    REFERENCES clients(client_id),
+
+    CONSTRAINT fk_sessions_packages
+    FOREIGN KEY (package_id)
+    REFERENCES packages(package_id)
+    );

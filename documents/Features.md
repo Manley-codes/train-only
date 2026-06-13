@@ -129,6 +129,10 @@
 - Recommend how many clients and sessions are needed to hit income goals
 - Advise on session pricing based on location, experience level,
   market rates, and time of year
+- Compare package prices against single-session rates and other packages
+- Warn when a package discount is too aggressive or inconsistent
+- Suggest balanced package pricing based on session count, income goals,
+  and trainer workload
 - Warn when the trainer is approaching or in the overdrive zone
 - Suggest when to raise rates or lock in longer packages ahead of slow seasons
 - Flag when the trainer may be undercharging relative to their market
@@ -137,7 +141,7 @@
 - Personal financial data is sensitive — security and trust are essential
   before this feature is introduced to users
 - Phase 1 will be manual input with basic calculations
-- AI pricing intelligence added in Stage 5
+- AI pricing intelligence and package pricing advice added in Stage 5
 
 ---
 
