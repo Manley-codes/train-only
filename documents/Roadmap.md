@@ -30,6 +30,13 @@ When iOS is added later it connects to the same backend. No rebuilding the logic
 
 ## Build Stages
 
+## Parallel Learning Track
+
+- Main app foundation stays focused on database, backend, and core trainer workflows.
+- AI agent learning can begin earlier in a separate agent-lab folder for experiments.
+- Early agent experiments may include task spotlight, pricing advisor, scheduling assistant,
+  and workout plan organizer using test data before production integration.
+
 ### Stage 1 — Blueprint
 Status: In Progress
 
