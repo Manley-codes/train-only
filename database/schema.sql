@@ -89,3 +89,30 @@ CREATE TABLE IF NOT EXISTS sessions (
     FOREIGN KEY (package_id)
     REFERENCES packages(package_id)
     );
+
+-- ================================================
+-- TABLE 5: payments
+-- Tracks money received from clients for packages.
+-- ================================================
+
+CREATE TABLE IF NOT EXISTS payments (
+                                        payment_id     INT            AUTO_INCREMENT PRIMARY KEY,
+                                        client_id      INT            NOT NULL,
+                                        package_id     INT,
+                                        amount         DECIMAL(10, 2) NOT NULL,
+    payment_date   DATE           NOT NULL,
+    due_date       DATE,
+    payment_method VARCHAR(50),
+    payment_type   VARCHAR(20)    NOT NULL DEFAULT 'one_time',
+    status         VARCHAR(20)    NOT NULL DEFAULT 'paid',
+    notes          TEXT,
+    created_at     DATETIME       DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT fk_payments_clients
+    FOREIGN KEY (client_id)
+    REFERENCES clients(client_id),
+
+    CONSTRAINT fk_payments_packages
+    FOREIGN KEY (package_id)
+    REFERENCES packages(package_id)
+    );

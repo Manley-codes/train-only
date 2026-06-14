@@ -32,3 +32,20 @@ GROUP BY
     c.last_name,
     p.package_id,
     p.sessions_total;
+
+-- Show each payment with the client and package it belongs to.
+SELECT
+    pay.payment_id,
+    CONCAT(c.first_name, ' ', c.last_name) AS client_name,
+    p.package_id,
+    pay.amount,
+    pay.payment_date,
+    pay.payment_method,
+    pay.payment_type,
+    pay.status,
+    pay.notes
+FROM payments pay
+         JOIN clients c
+              ON pay.client_id = c.client_id
+         LEFT JOIN packages p
+                   ON pay.package_id = p.package_id;

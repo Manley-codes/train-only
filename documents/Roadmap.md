@@ -56,9 +56,9 @@ Status: In Progress
 - [x] Create clients table with trainer relationship
 - [x] Create packages table with client relationship
 - [x] Add initial seed data for trainer, client, and package
-- [x] Add first test queries for joined data
-- [ ] Create sessions table
-- [ ] Create payments table
+- [x] Add test queries for joined trainer, package, session, and payment data
+- [x] Create sessions table
+- [x] Create payments table
 - [ ] Create workout plan tables
 - [ ] Practice CRUD operations (Create, Read, Update, Delete)
 
