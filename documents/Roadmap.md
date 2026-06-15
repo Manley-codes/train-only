@@ -59,7 +59,7 @@ Status: In Progress
 - [x] Add test queries for joined trainer, package, session, and payment data
 - [x] Create sessions table
 - [x] Create payments table
-- [ ] Create workout plan tables
+- [x] Create workout plan tables
 - [ ] Practice CRUD operations (Create, Read, Update, Delete)
 
 ### Stage 3 — Android App (Core Trainer Features)

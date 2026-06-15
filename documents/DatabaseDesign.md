@@ -104,10 +104,8 @@ All relationships use foreign keys to link records across tables.
 | Column | Type | Notes |
 |--------|------|-------|
 | session_id | INT | Primary key |
-| trainer_id | INT | Foreign key → trainers |
 | client_id | INT | Foreign key → clients |
 | package_id | INT | Foreign key → packages |
-| workout_plan_id | INT | Foreign key → workout_plans, nullable |
 | scheduled_at | DATETIME | Date and time of session |
 | duration_minutes | INT | |
 | location | VARCHAR(255) | Gym, address, or virtual link |
@@ -124,22 +122,23 @@ All relationships use foreign keys to link records across tables.
 | trainer_id | INT | Foreign key → trainers |
 | client_id | INT | Foreign key → clients |
 | plan_name | VARCHAR(100) | e.g. "Marcus — Phase 1" |
-| duration_weeks | INT | How long the plan runs |
-| result_goals | TEXT | Goals to accomplish by end of plan |
+| workouts_per_week | INT | Desired weekly training frequency |
+| goal | TEXT | Main goal for the routine |
+| important_notes | TEXT | Injuries, limitations, restrictions, or preferences |
+| status | VARCHAR(20) | draft, active, archived |
 | created_at | DATETIME | |
 | updated_at | DATETIME | |
 
 ---
 
-### workout_days
+### workout_plan_days
 | Column | Type | Notes |
 |--------|------|-------|
-| day_id | INT | Primary key |
+| plan_day_id | INT | Primary key |
 | plan_id | INT | Foreign key → workout_plans |
-| day_label | VARCHAR(50) | Monday, Day 1, etc |
-| workout_type | VARCHAR(50) | Push, Pull, Legs, HIIT, Recovery, etc |
-| intensity | VARCHAR(20) | Heavy, Moderate, Light |
-| notes | TEXT | Optional |
+| day_number | INT | Flexible routine order, e.g. Day 1, Day 2 |
+| routine_focus | VARCHAR(100) | Upper Body, Lower Body, Full Body, or custom |
+| details | TEXT | Significant notes only |
 
 ---
 

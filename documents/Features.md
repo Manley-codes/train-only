@@ -43,20 +43,25 @@
 ## Pillar 3 — Workout Plan Management
 
 **Trainer can:**
-- Create a workout plan and assign it to a client
-- Build a plan from exercises (name, sets, reps, rest time, notes)
-- Edit a plan at any time
-- Duplicate a plan to use as a template for another client
-- View all plans in one organized list
+- Create a lightweight weekly routine plan and assign it to a client
+- Set how many workouts per week the plan is designed for
+- Add flexible routine days such as Upper Body, Lower Body, Full Body,
+  or a custom focus
+- Add important notes for injuries, limitations, intensity restrictions,
+  or client preferences
+- Mark a plan as draft, active, or archived
 
 **Client can:**
 - View their current workout plan
-- See exercise details (sets, reps, rest, notes)
-- Mark a session's workout as completed (optional check-in feature)
+- See the weekly routine focus for each plan day
+- See important notes the trainer chooses to share
 
 **Notes:**
-- Plans should be versioned — if a trainer updates a plan, the history is kept
-- Exercise library (a reusable list of exercises) would reduce repetitive data entry
+- Version 1 is not a full workout app or exercise library
+- Routine days are flexible labels, not fixed calendar weekdays
+- Default routine focuses are Upper Body, Lower Body, and Full Body
+- Custom routine focuses are allowed when the default options do not fit
+- Sessions may later reference a routine day to help trainers remember what was worked on last
 
 ---
 
@@ -153,8 +158,7 @@
 - Client Profile (sessions, plan, payments, package)
 - Schedule / Calendar View
 - Add / Edit Session
-- Workout Plan Builder
-- Exercise Library
+- Weekly Routine Planner
 - Payment Log
 - Prospect Pipeline
 - Notifications / Alerts

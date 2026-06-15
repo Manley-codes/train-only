@@ -49,3 +49,22 @@ FROM payments pay
               ON pay.client_id = c.client_id
          LEFT JOIN packages p
                    ON pay.package_id = p.package_id;
+
+SELECT
+    CONCAT(c.first_name, ' ', c.last_name) AS client_name,
+    wp.plan_name,
+    wp.workouts_per_week,
+    wp.goal,
+    wpd.day_number,
+    wpd.routine_focus,
+    wpd.details
+FROM workout_plans wp
+         JOIN clients c
+              ON wp.client_id = c.client_id
+         JOIN workout_plan_days wpd
+              ON wp.plan_id = wpd.plan_id
+WHERE wp.status = 'active'
+ORDER BY
+    c.last_name,
+    c.first_name,
+    wpd.day_number;

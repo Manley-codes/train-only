@@ -98,3 +98,49 @@ VALUES (
            'paid',
            'Paid in full for 12-session package'
        );
+INSERT INTO workout_plans (
+    trainer_id,
+    client_id,
+    plan_name,
+    workouts_per_week,
+    goal,
+    important_notes,
+    status
+)
+VALUES (
+           @trainer_id,
+           @client_id,
+           'Phase 1 - Strength Foundation',
+           3,
+           'Build consistency and strength with a simple weekly routine.',
+           'Keep shoulder volume moderate and reassess after the first phase.',
+           'active'
+       );
+
+SET @plan_id = LAST_INSERT_ID();
+
+INSERT INTO workout_plan_days (
+    plan_id,
+    day_number,
+    routine_focus,
+    details
+)
+VALUES
+    (
+        @plan_id,
+        1,
+        'Upper Body',
+        'Keep shoulder volume moderate.'
+    ),
+    (
+        @plan_id,
+        2,
+        'Lower Body',
+        'Focus on controlled movement quality.'
+    ),
+    (
+        @plan_id,
+        3,
+        'Full Body',
+        'Moderate intensity and conditioning focus.'
+    );
