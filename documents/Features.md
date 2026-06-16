@@ -121,7 +121,9 @@
 - Disputed counts always resolve to the app's logged history
 
 ---
-## Pillar 7 — Trainer Sustainability (The Overdrive Trap)
+## Pillar 7 — Trainer Sustainability (Trainer Business Health)
+
+Future user-facing name TBD. "Trainer Business Health" is the working name for now.
 
 **Trainer can:**
 - Enter monthly personal expenses and income goals
@@ -138,7 +140,7 @@
 - Warn when a package discount is too aggressive or inconsistent
 - Suggest balanced package pricing based on session count, income goals,
   and trainer workload
-- Warn when the trainer is approaching or in the overdrive zone
+- Warn when the trainer's current workload and pricing model may be becoming unsustainable
 - Suggest when to raise rates or lock in longer packages ahead of slow seasons
 - Flag when the trainer may be undercharging relative to their market
 
@@ -147,6 +149,14 @@
   before this feature is introduced to users
 - Phase 1 will be manual input with basic calculations
 - AI pricing intelligence and package pricing advice added in Stage 5
+- Future sustainability analysis should consider money pressure, time pressure,
+  pricing pressure, and energy pressure.
+- Early versions should use simple totals instead of detailed personal bill
+  breakdowns. Example: required monthly personal expenses.
+- Later analysis may compare the trainer's rates against market-rate averages
+  for their location, experience level, certifications, and training format.
+- The feature should feel like it is protecting the trainer from overwork and
+  undercharging, not judging them.
 
 ---
 

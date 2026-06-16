@@ -84,6 +84,7 @@ Status: In Progress
 | Payment Agent | Flags unpaid balances, sends reminders |
 | Client Acquisition Agent | Drafts outreach messages, tracks prospect pipeline |
 | Plan Agent | Suggests workout plan adjustments based on client progress |
+| Sustainability/Pricing Agent | Evaluates workload, income goals, package pricing, and market-rate fit |
 
 ---
 
