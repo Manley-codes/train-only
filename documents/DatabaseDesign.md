@@ -6,8 +6,8 @@
 
 ## Overview
 
-Nine tables. Every table connects back to the trainer.
-All relationships use foreign keys to link records across tables.
+Eight active tables. Prospects and measurements are planned for later.
+Records connect back to the trainer directly or through client/package relationships.
 
 ---
 
@@ -45,7 +45,7 @@ All relationships use foreign keys to link records across tables.
 
 ---
 
-### prospects
+### prospects (planned later)
 | Column | Type | Notes |
 |--------|------|-------|
 | prospect_id | INT | Primary key |
@@ -87,7 +87,6 @@ All relationships use foreign keys to link records across tables.
 |--------|------|-------|
 | payment_id | INT | Primary key |
 | client_id | INT | Foreign key → clients |
-| trainer_id | INT | Foreign key → trainers |
 | package_id | INT | Foreign key → packages |
 | amount | DECIMAL(10,2) | |
 | payment_date | DATE | |
@@ -104,14 +103,37 @@ All relationships use foreign keys to link records across tables.
 | Column | Type | Notes |
 |--------|------|-------|
 | session_id | INT | Primary key |
-| client_id | INT | Foreign key → clients |
-| package_id | INT | Foreign key → packages |
+| trainer_id | INT | Foreign key → trainers |
 | scheduled_at | DATETIME | Date and time of session |
 | duration_minutes | INT | |
 | location | VARCHAR(255) | Gym, address, or virtual link |
-| status | VARCHAR(20) | scheduled, completed, cancelled |
+| status | VARCHAR(20) | Event status: scheduled, completed, cancelled |
 | notes | TEXT | Optional |
 | created_at | DATETIME | |
+
+The `sessions` table represents the training event on the calendar. It does not
+belong to only one client anymore. A one-on-one session has one participant, while
+a future small-group session can have multiple participants.
+
+---
+
+### session_participants
+| Column | Type | Notes |
+|--------|------|-------|
+| session_participant_id | INT | Primary key |
+| session_id | INT | Foreign key → sessions |
+| client_id | INT | Foreign key → clients |
+| package_id | INT | Foreign key → packages; must belong to the same client |
+| status | VARCHAR(20) | Client attendance/status for this session |
+| notes | TEXT | Optional notes for this client in this session |
+| created_at | DATETIME | |
+
+The `session_participants` table connects clients to sessions. This is what makes
+small-group training possible later without redesigning the session table.
+
+Example:
+- One-on-one training: one `sessions` row and one `session_participants` row.
+- Small-group training: one `sessions` row and two to four `session_participants` rows.
 
 ---
 
@@ -142,7 +164,7 @@ All relationships use foreign keys to link records across tables.
 
 ---
 
-### measurements
+### measurements (planned later)
 | Column | Type | Notes |
 |--------|------|-------|
 | measurement_id | INT | Primary key |

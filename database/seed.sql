@@ -48,33 +48,72 @@ VALUES (
 SET @package_id = LAST_INSERT_ID();
 
 INSERT INTO sessions (
-    client_id,
-    package_id,
+    trainer_id,
     scheduled_at,
     duration_minutes,
     location,
     status,
     notes
 )
-VALUES
-    (
-        @client_id,
-        @package_id,
-        '2026-06-15 10:00:00',
-        60,
-        'LA Fitness',
-        'completed',
-        'Upper body workout'
-    ),
-    (
-        @client_id,
-        @package_id,
-        '2026-06-17 10:00:00',
-        60,
-        'LA Fitness',
-        'completed',
-        'Leg day'
-    );
+VALUES (
+           @trainer_id,
+           '2026-06-15 10:00:00',
+           60,
+           'LA Fitness',
+           'completed',
+           'Upper body workout'
+       );
+
+SET @session_id = LAST_INSERT_ID();
+
+INSERT INTO session_participants (
+    session_id,
+    client_id,
+    package_id,
+    status,
+    notes
+)
+VALUES (
+           @session_id,
+           @client_id,
+           @package_id,
+           'completed',
+           'Attended upper body session'
+       );
+
+INSERT INTO sessions (
+    trainer_id,
+    scheduled_at,
+    duration_minutes,
+    location,
+    status,
+    notes
+)
+VALUES (
+           @trainer_id,
+           '2026-06-17 10:00:00',
+           60,
+           'LA Fitness',
+           'completed',
+           'Leg day'
+       );
+
+SET @session_id = LAST_INSERT_ID();
+
+INSERT INTO session_participants (
+    session_id,
+    client_id,
+    package_id,
+    status,
+    notes
+)
+VALUES (
+           @session_id,
+           @client_id,
+           @package_id,
+           'completed',
+           'Attended lower body session'
+       );
 
 INSERT INTO payments (
     client_id,

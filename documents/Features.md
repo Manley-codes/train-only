@@ -3,7 +3,7 @@
 ## Pillar 1 — Scheduling & Notifications
 
 **Trainer can:**
-- Create a session for a specific client (date, time, location)
+- Create a session for one client now, with room for small-group sessions later
 - Edit or cancel a session
 - View a calendar of all upcoming sessions
 - Receive a push notification reminder before each session (configurable — e.g. 1 hour before)
@@ -14,7 +14,7 @@
 - Receive a push notification reminder before their session
 
 **Notes:**
-- Sessions must be tied to a specific client record
+- Sessions are calendar events; clients are attached through session participants
 - Location field supports gym name, address, or virtual (e.g. Zoom link)
 - Cancellations should be logged, not deleted, for record-keeping
 

@@ -62,18 +62,20 @@ CREATE TABLE IF NOT EXISTS packages (
 
     CONSTRAINT fk_packages_clients
     FOREIGN KEY (client_id)
-    REFERENCES clients(client_id)
+    REFERENCES clients(client_id),
+
+    CONSTRAINT uq_packages_package_client
+    UNIQUE (package_id, client_id)
     );
 -- ================================================
 -- TABLE 4: sessions
--- A scheduled training appointment for one client.
--- Completed sessions will be used to calculate remaining package sessions.
+-- A scheduled training event. One-on-one sessions have one participant.
+-- Future small-group sessions can have multiple participants.
 -- ================================================
 
 CREATE TABLE IF NOT EXISTS sessions (
                                         session_id       INT          AUTO_INCREMENT PRIMARY KEY,
-                                        client_id        INT          NOT NULL,
-                                        package_id       INT          NOT NULL,
+                                        trainer_id       INT          NOT NULL,
                                         scheduled_at     DATETIME     NOT NULL,
                                         duration_minutes INT          NOT NULL DEFAULT 60,
                                         location         VARCHAR(255),
@@ -81,17 +83,44 @@ CREATE TABLE IF NOT EXISTS sessions (
     notes            TEXT,
     created_at       DATETIME     DEFAULT CURRENT_TIMESTAMP,
 
-    CONSTRAINT fk_sessions_clients
-    FOREIGN KEY (client_id)
-    REFERENCES clients(client_id),
-
-    CONSTRAINT fk_sessions_packages
-    FOREIGN KEY (package_id)
-    REFERENCES packages(package_id)
+    CONSTRAINT fk_sessions_trainers
+    FOREIGN KEY (trainer_id)
+    REFERENCES trainers(trainer_id)
     );
 
 -- ================================================
--- TABLE 5: payments
+-- TABLE 5: session_participants
+-- Connects clients and packages to a training event.
+-- This lets one session support one client now or a small group later.
+-- ================================================
+
+CREATE TABLE IF NOT EXISTS session_participants (
+                                        session_participant_id INT         AUTO_INCREMENT PRIMARY KEY,
+                                        session_id             INT         NOT NULL,
+                                        client_id              INT         NOT NULL,
+                                        package_id             INT         NOT NULL,
+                                        status                 VARCHAR(20) NOT NULL DEFAULT 'scheduled',
+                                        notes                  TEXT,
+                                        created_at             DATETIME    DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT fk_session_participants_sessions
+    FOREIGN KEY (session_id)
+    REFERENCES sessions(session_id),
+
+    CONSTRAINT fk_session_participants_clients
+    FOREIGN KEY (client_id)
+    REFERENCES clients(client_id),
+
+    CONSTRAINT fk_session_participants_packages
+    FOREIGN KEY (package_id, client_id)
+    REFERENCES packages(package_id, client_id),
+
+    CONSTRAINT uq_session_participants_session_client
+    UNIQUE (session_id, client_id)
+    );
+
+-- ================================================
+-- TABLE 6: payments
 -- Tracks money received from clients for packages.
 -- ================================================
 
@@ -118,7 +147,7 @@ CREATE TABLE IF NOT EXISTS payments (
     );
 
 -- ================================================
--- TABLE 6: workout_plans
+-- TABLE 7: workout_plans
 -- A lightweight weekly routine assigned to one client.
 -- ================================================
 
@@ -144,7 +173,7 @@ CREATE TABLE IF NOT EXISTS workout_plans (
     );
 
 -- ================================================
--- TABLE 7: workout_plan_days
+-- TABLE 8: workout_plan_days
 -- Flexible routine days inside a workout plan.
 -- ================================================
 

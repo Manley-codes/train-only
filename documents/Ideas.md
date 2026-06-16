@@ -55,7 +55,7 @@ These are saved for future versions once the core app is complete.
 - In-app video workouts
 - Wearable device integration
 - Nutrition tracking
-- Group class management
+- Small-group training support
 - Automated billing / charging clients
 - iOS version (connects to same backend when ready)
 
@@ -65,7 +65,6 @@ These are saved for future versions once the core app is complete.
 
 - [x] What is the app's name? **Train Only** ✓
 - [ ] Will clients download the same app as trainers, or a separate app?
-- [ ] Should the app support multiple trainers (a gym scenario) or one trainer only?
 - [ ] What payment processor should Phase 2 target? (Stripe recommended)
 - [ ] Should workout completions sync with the session tracker automatically?
 

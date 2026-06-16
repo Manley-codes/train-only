@@ -58,6 +58,7 @@ Status: In Progress
 - [x] Add initial seed data for trainer, client, and package
 - [x] Add test queries for joined trainer, package, session, and payment data
 - [x] Create sessions table
+- [x] Add session participants table for future small-group support
 - [x] Create payments table
 - [x] Create workout plan tables
 - [ ] Practice CRUD operations (Create, Read, Update, Delete)

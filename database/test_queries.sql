@@ -22,8 +22,11 @@ SELECT
 FROM packages p
          JOIN clients c
               ON p.client_id = c.client_id
+         LEFT JOIN session_participants sp
+                   ON p.package_id = sp.package_id
+                       AND sp.status = 'completed'
          LEFT JOIN sessions s
-                   ON p.package_id = s.package_id
+                   ON sp.session_id = s.session_id
                        AND s.status = 'completed'
 WHERE p.status = 'active'
 GROUP BY
@@ -32,6 +35,26 @@ GROUP BY
     c.last_name,
     p.package_id,
     p.sessions_total;
+
+-- Show scheduled sessions with the clients attached to each session.
+SELECT
+    s.session_id,
+    s.scheduled_at,
+    s.duration_minutes,
+    s.location,
+    s.status AS session_status,
+    CONCAT(c.first_name, ' ', c.last_name) AS client_name,
+    sp.status AS participant_status,
+    sp.notes AS participant_notes
+FROM sessions s
+         JOIN session_participants sp
+              ON s.session_id = sp.session_id
+         JOIN clients c
+              ON sp.client_id = c.client_id
+ORDER BY
+    s.scheduled_at,
+    c.last_name,
+    c.first_name;
 
 -- Show each payment with the client and package it belongs to.
 SELECT
