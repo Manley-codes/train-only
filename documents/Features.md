@@ -138,6 +138,8 @@ Future user-facing name TBD. "Trainer Business Health" is the working name for n
   market rates, and time of year
 - Compare package prices against single-session rates and other packages
 - Warn when a package discount is too aggressive or inconsistent
+- Show when prepaid package money has been received but future training labor is still owed
+- Estimate effective session rate, monthly package value, remaining sessions, and remaining labor value
 - Suggest balanced package pricing based on session count, income goals,
   and trainer workload
 - Warn when the trainer's current workload and pricing model may be becoming unsustainable
@@ -155,6 +157,12 @@ Future user-facing name TBD. "Trainer Business Health" is the working name for n
   breakdowns. Example: required monthly personal expenses.
 - Later analysis may compare the trainer's rates against market-rate averages
   for their location, experience level, certifications, and training format.
+- Trainer Business Health should help reveal the hidden cost of prepaid discounts,
+  low contract pricing, stretched timelines, and future session debt.
+- Money received should not automatically be treated as fully earned when the
+  trainer still owes future sessions.
+- The goal is to help trainers avoid survival-mode deals that solve a short-term
+  cash need but create long-term workload stress.
 - The feature should feel like it is protecting the trainer from overwork and
   undercharging, not judging them.
 
