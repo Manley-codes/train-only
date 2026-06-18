@@ -30,6 +30,14 @@ When iOS is added later it connects to the same backend. No rebuilding the logic
 
 ## Build Stages
 
+Train Only follows a business-guided management strategy:
+
+1. Build reliable operational records.
+2. Turn those records into explainable business measures.
+3. Recommend one useful Next Best Move.
+4. Introduce useful agents early, after their calculations and tools are trustworthy.
+5. Expand autonomy and multi-agent coordination gradually.
+
 ## Parallel Learning Track
 
 - Main app foundation stays focused on database, backend, and core trainer workflows.
@@ -61,30 +69,64 @@ Status: In Progress
 - [x] Add session participants table for future small-group support
 - [x] Create payments table
 - [x] Create workout plan tables
-- [ ] Practice CRUD operations (Create, Read, Update, Delete)
+- [ ] Complete the client-package-payment-session workflow
+- [ ] Add essential database safeguards
+- [ ] Add trainer dashboard and client session-history queries
+- [ ] Verify multiple participants without building class-management scope
+- [ ] Recreate and verify the database from project SQL files
 
-### Stage 3 — Android App (Core Trainer Features)
-- Set up Android Studio
-- Build trainer screens one at a time
-- Connect screens to MySQL via Spring Boot backend
+### Stage 3 — Backend Foundation
+- Learn the purpose and structure of Spring Boot
+- Set up the Java and Spring Boot backend
+- Connect the backend to MySQL
+- Implement core trainer, client, package, payment, and session operations
+- Add validation, error handling, and authentication foundations
+- Design backend actions as safe tools that future agents can call
+- Research and select an agent framework/provider based on tool use, approvals, privacy,
+  evaluation, cost, and Java/Spring Boot integration
 
-### Stage 4 — Client Side + Desktop View
-- Add client-facing screens
-- Build Java desktop version for trainers
-- Learn separation of concerns — sharing logic across platforms
+### Stage 4 — Trainer Management MVP
+- Refine the approved low-fidelity wireframes into working trainer screens
+- Build the Android trainer experience
+- Implement dashboard, client profile, scheduling, payments, and package transparency
+- Keep workout plans lightweight
+- Validate workflows with realistic trainer scenarios
+- Test key workflows and early Business Health concepts with independent trainers
+- Include at least one useful agent-driven workflow in the first public release
+- Require trainer approval before the agent sends messages or changes business records
 
-### Stage 5 — AI Agent Layer
-- Introduce agents one at a time starting with Scheduling
-- Build toward Chief of Staff Agent coordinating all sub-agents
+### Stage 5 — Trainer Business Health V1
+- Add minimal trainer inputs: income goal and comfortable weekly capacity
+- Calculate effective session rate
+- Calculate future session obligation
+- Calculate capacity pressure
+- Calculate income goal gap
+- Show explainable health states instead of an arbitrary overall score
+- Generate one rule-based Next Best Move
+- Validate thresholds, terminology, and recommendations with real trainers
+- Add a Business Health Agent that explains results and prepares approved actions
+
+### Stage 6 — Client Experience And Payments
+- Add the client-facing experience
+- Add secure one-time payments through a payment provider
+- Add recurring payments only after the manual payment workflow is reliable
+- Add package acknowledgment, reminders, and client transparency
+
+### Stage 7 — Expanded Intelligence And AI
+- Add marketing ROI and lead-conversion tracking
+- Add recommendation history and business-plan updates
+- Add market and location analysis only with trustworthy source data
+- Add AI-generated explanations after rule-based guidance is reliable
+- Expand specialist-agent capabilities and controlled autonomy
+- Add Chief-of-Staff-style coordination only after individual agents are reliable
 
 | Agent | Responsibility |
 |-------|----------------|
-| Chief of Staff Agent | Coordinates all sub-agents, handles high-level requests |
-| Scheduling Agent | Detects conflicts, suggests optimal session times |
-| Payment Agent | Flags unpaid balances, sends reminders |
-| Client Acquisition Agent | Drafts outreach messages, tracks prospect pipeline |
+| Business Health Agent | Explains pricing, capacity, income, and future-session pressure |
+| Scheduling Agent | Detects conflicts and suggests workable session times |
+| Payment Agent | Flags unpaid balances and supports payment reminders |
+| Client Acquisition Agent | Helps analyze leads, follow-up, and marketing performance |
 | Plan Agent | Suggests workout plan adjustments based on client progress |
-| Sustainability/Pricing Agent | Evaluates workload, income goals, package pricing, and market-rate fit |
 
 ---
 

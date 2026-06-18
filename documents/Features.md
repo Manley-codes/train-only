@@ -131,7 +131,7 @@ Future user-facing name TBD. "Trainer Business Health" is the working name for n
 - Set their current session rate per client
 - View a sustainability dashboard showing earnings vs expenses
 
-**AI Agent (future):**
+**Business Health guidance (future):**
 - Calculate the minimum monthly earnings needed based on personal expenses
 - Recommend how many clients and sessions are needed to hit income goals
 - Advise on session pricing based on location, experience level,
@@ -150,7 +150,7 @@ Future user-facing name TBD. "Trainer Business Health" is the working name for n
 - Personal financial data is sensitive — security and trust are essential
   before this feature is introduced to users
 - Phase 1 will be manual input with basic calculations
-- AI pricing intelligence and package pricing advice added in Stage 5
+- Rule-based pricing and sustainability guidance should come before AI-generated explanations
 - Future sustainability analysis should consider money pressure, time pressure,
   pricing pressure, and energy pressure.
 - Early versions should use simple totals instead of detailed personal bill
@@ -158,13 +158,27 @@ Future user-facing name TBD. "Trainer Business Health" is the working name for n
 - Later analysis may compare the trainer's rates against market-rate averages
   for their location, experience level, certifications, and training format.
 - Trainer Business Health should help reveal the hidden cost of prepaid discounts,
-  low contract pricing, stretched timelines, and future session debt.
+  low contract pricing, stretched timelines, and future session obligations.
 - Money received should not automatically be treated as fully earned when the
   trainer still owes future sessions.
 - The goal is to help trainers avoid survival-mode deals that solve a short-term
   cash need but create long-term workload stress.
 - The feature should feel like it is protecting the trainer from overwork and
   undercharging, not judging them.
+
+---
+
+## AI Agent Operating Principles
+
+- AI agents are a core product feature and should appear in the first public release.
+- Early agents should use approved backend tools and reliable Train Only data.
+- Agents should perform focused tasks, not exist only as named chat personalities.
+- Consequential actions require trainer approval, including sending messages, changing
+  schedules, modifying prices or package terms, and initiating financial actions.
+- Strong early tasks include daily briefings, issue detection, Next Best Move guidance,
+  and drafting reminders or follow-ups for approval.
+- Start with a small number of reliable specialist agents.
+- Add Chief-of-Staff-style coordination only after individual agents are dependable.
 
 ---
 

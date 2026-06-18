@@ -2,7 +2,12 @@
 
 ## The Core Feeling
 
-Train Only is not a fitness app. It is a business confidence app for personal trainers. The goal is not to give trainers more features — it is to give them a feeling. That feeling is: **"I have it all together."** Every design decision, every screen, every interaction should serve that feeling.
+Train Only is not primarily a workout-delivery app. It is a business-guided management
+system for independent personal trainers. The goal is not to win by having the most
+features. It is to help trainers feel informed, protected, and in control.
+
+The core feeling remains: **"I have it all together."** Every design decision, screen,
+calculation, and recommendation should support that feeling.
 
 ---
 
@@ -66,9 +71,10 @@ Features keep the trainer. Design makes them fall in love with the app on day on
 ## Business Model
 
 - Free trial — trainers experience the value before committing
-- **$20/month subscription after trial**
-- The value proposition: if Train Only saves a trainer two hours a week or helps them land one extra client, it has already paid for itself ten times over
-- Comparable to Claude and ChatGPT at $20/month — people pay for things that genuinely make them feel capable and in control
+- Subscription pricing is a hypothesis to validate after a working prototype exists
+- The product should first prove that it saves time or prevents harmful pricing,
+  package, or workload decisions
+- Trust and repeated value should determine pricing, not comparison with unrelated apps
 
 ---
 

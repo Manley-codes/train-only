@@ -8,14 +8,20 @@
 
 ## Overview
 
-A mobile-first (Android) application designed to help personal trainers manage every
-aspect of their business — scheduling, clients, payments, workout plans, and client
-acquisition — from one place. A companion desktop version (Windows) will serve trainers
-who prefer working from a larger screen. A client-facing view gives clients transparency
-into their sessions, plans, and remaining packages.
+Train Only is a business-guided management system for independent personal trainers.
+It combines reliable management of clients, packages, payments, sessions, schedules,
+and lightweight workout plans with future guidance about pricing, workload, income
+pressure, and business sustainability.
 
-The long-term vision includes an AI agent layer that automates and assists with routine
-trainer tasks.
+The management foundation creates trustworthy data. Trainer Business Health will later
+use that data to explain risks and recommend one clear Next Best Move.
+
+Android remains the primary planned application. A future desktop view and client-facing
+experience will connect to the same Java and Spring Boot backend.
+
+AI agents are part of the core product identity. The first public release should include
+at least one useful agent-driven workflow, while more autonomous and coordinated agents
+will be introduced only after their tools and approval rules are reliable.
 
 ---
 
