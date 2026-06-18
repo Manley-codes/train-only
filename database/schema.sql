@@ -65,7 +65,16 @@ CREATE TABLE IF NOT EXISTS packages (
     REFERENCES clients(client_id),
 
     CONSTRAINT uq_packages_package_client
-    UNIQUE (package_id, client_id)
+    UNIQUE (package_id, client_id),
+
+    CONSTRAINT chk_packages_sessions_total
+    CHECK (sessions_total > 0),
+
+    CONSTRAINT chk_packages_cost
+    CHECK (package_cost >= 0),
+
+    CONSTRAINT chk_packages_dates
+    CHECK (expiration_date >= purchase_date)
     );
 -- ================================================
 -- TABLE 4: sessions
@@ -85,7 +94,10 @@ CREATE TABLE IF NOT EXISTS sessions (
 
     CONSTRAINT fk_sessions_trainers
     FOREIGN KEY (trainer_id)
-    REFERENCES trainers(trainer_id)
+    REFERENCES trainers(trainer_id),
+
+    CONSTRAINT chk_sessions_duration
+    CHECK (duration_minutes > 0)
     );
 
 -- ================================================
@@ -143,7 +155,10 @@ CREATE TABLE IF NOT EXISTS payments (
 
     CONSTRAINT fk_payments_packages
     FOREIGN KEY (package_id)
-    REFERENCES packages(package_id)
+    REFERENCES packages(package_id),
+
+    CONSTRAINT chk_payments_amount
+    CHECK (amount > 0)
     );
 
 -- ================================================
@@ -152,16 +167,17 @@ CREATE TABLE IF NOT EXISTS payments (
 -- ================================================
 
 CREATE TABLE IF NOT EXISTS workout_plans (
-                                        plan_id           INT          AUTO_INCREMENT PRIMARY KEY,
-                                        trainer_id        INT          NOT NULL,
-                                        client_id         INT          NOT NULL,
-                                        plan_name         VARCHAR(100) NOT NULL,
-                                        workouts_per_week INT          NOT NULL,
-                                        goal              TEXT,
-                                        important_notes   TEXT,
-                                        status            VARCHAR(20)  NOT NULL DEFAULT 'draft',
-                                        created_at        DATETIME     DEFAULT CURRENT_TIMESTAMP,
-                                        updated_at        DATETIME     DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                                             plan_id           INT          AUTO_INCREMENT PRIMARY KEY,
+                                             trainer_id        INT          NOT NULL,
+                                             client_id         INT          NOT NULL,
+                                             plan_name         VARCHAR(100) NOT NULL,
+    workouts_per_week INT          NOT NULL,
+    goal              TEXT,
+    important_notes   TEXT,
+    status            VARCHAR(20)  NOT NULL DEFAULT 'draft',
+    created_at        DATETIME     DEFAULT CURRENT_TIMESTAMP,
+    updated_at        DATETIME     DEFAULT CURRENT_TIMESTAMP
+    ON UPDATE CURRENT_TIMESTAMP,
 
     CONSTRAINT fk_workout_plans_trainers
     FOREIGN KEY (trainer_id)
@@ -169,23 +185,33 @@ CREATE TABLE IF NOT EXISTS workout_plans (
 
     CONSTRAINT fk_workout_plans_clients
     FOREIGN KEY (client_id)
-    REFERENCES clients(client_id)
+    REFERENCES clients(client_id),
+
+    CONSTRAINT chk_workout_plans_frequency
+    CHECK (workouts_per_week > 0)
     );
 
 -- ================================================
 -- TABLE 8: workout_plan_days
 -- Flexible routine days inside a workout plan.
 -- ================================================
-
 CREATE TABLE IF NOT EXISTS workout_plan_days (
-                                        plan_day_id   INT          AUTO_INCREMENT PRIMARY KEY,
-                                        plan_id       INT          NOT NULL,
-                                        day_number    INT          NOT NULL,
-                                        routine_focus VARCHAR(100) NOT NULL,
-                                        details       TEXT,
-                                        created_at    DATETIME     DEFAULT CURRENT_TIMESTAMP,
+                                                 plan_day_id   INT          AUTO_INCREMENT PRIMARY KEY,
+                                                 plan_id       INT          NOT NULL,
+                                                 day_number    INT          NOT NULL,
+                                                 routine_focus VARCHAR(100) NOT NULL,
+    details       TEXT,
+    created_at    DATETIME     DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT fk_workout_plan_days_plans
     FOREIGN KEY (plan_id)
-    REFERENCES workout_plans(plan_id)
+    REFERENCES workout_plans(plan_id),
+
+    CONSTRAINT chk_workout_plan_days_number
+    CHECK (day_number > 0),
+
+    CONSTRAINT uq_workout_plan_days_plan_day
+    UNIQUE (plan_id, day_number)
     );
+
+
