@@ -91,3 +91,70 @@ ORDER BY
     c.last_name,
     c.first_name,
     wpd.day_number;
+
+-- Show each client with their active package, session usage, and payment summary.
+
+
+SELECT
+    c.client_id,
+    CONCAT(c.first_name, ' ', c.last_name) AS client_name,
+    c.email,
+    c.phone,
+    p.package_id,
+    p.purchase_date,
+    p.expiration_date,
+    p.sessions_total,
+
+    COALESCE(sc.sessions_used, 0) AS sessions_used,
+
+    p.sessions_total - COALESCE(sc.sessions_used, 0)
+                                           AS sessions_remaining,
+
+    p.package_cost,
+
+    ROUND(
+            p.package_cost / NULLIF(p.sessions_total, 0),
+            2
+    ) AS effective_price_per_session,
+
+    COALESCE(pt.total_paid, 0.00) AS total_paid,
+
+    p.package_cost - COALESCE(pt.total_paid, 0.00)
+                                           AS remaining_balance,
+
+    p.status AS package_status
+
+FROM clients c
+
+         JOIN packages p
+              ON c.client_id = p.client_id
+
+         LEFT JOIN (
+    SELECT
+        sp.package_id,
+        COUNT(*) AS sessions_used
+    FROM session_participants sp
+             JOIN sessions s
+                  ON sp.session_id = s.session_id
+    WHERE sp.status = 'completed'
+      AND s.status = 'completed'
+    GROUP BY sp.package_id
+) sc
+                   ON p.package_id = sc.package_id
+
+         LEFT JOIN (
+    SELECT
+        package_id,
+        SUM(amount) AS total_paid
+    FROM payments
+    WHERE status = 'paid'
+      AND package_id IS NOT NULL
+    GROUP BY package_id
+) pt
+                   ON p.package_id = pt.package_id
+
+WHERE p.status = 'active'
+
+ORDER BY
+    c.last_name,
+    c.first_name;
