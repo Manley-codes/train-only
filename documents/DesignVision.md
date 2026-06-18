@@ -9,6 +9,14 @@ features. It is to help trainers feel informed, protected, and in control.
 The core feeling remains: **"I have it all together."** Every design decision, screen,
 calculation, and recommendation should support that feeling.
 
+Train Only should also feel like **one less thing to stress over**, not another app the
+trainer must manage. It should complement the trainer's calendar, banking, messaging,
+notes, and workout tools by connecting the business facts those systems leave scattered.
+
+The experience should feel personally fitted:
+
+> This app understands how I actually run my training business.
+
 ---
 
 ## The Problem With Existing Fitness Apps
@@ -57,6 +65,10 @@ Train Only should do the same — the trainer should feel like a professional th
 - The app speaks to the trainer like a professional running a business
 - Not like a user filling out a form
 - Confident, clear, minimal
+- Full-time and part-time/side-gig trainers may see different priorities first, but
+  neither mode should feel like an inferior version
+- Capacity, committed sessions, income goals, and facility costs should be translated
+  into a clear business story rather than displayed as raw data
 
 ---
 
@@ -65,6 +77,10 @@ Train Only should do the same — the trainer should feel like a professional th
 This approach has a name in design: **emotional design**. The app should trigger a feeling — confidence, control, professionalism — through its visual identity alone.
 
 Features keep the trainer. Design makes them fall in love with the app on day one.
+
+Psychologically, the product should replace uncertainty with visible control. It should
+show hidden workload and costs without shaming the trainer, then offer one grounded Next
+Best Move.
 
 ---
 

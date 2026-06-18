@@ -134,6 +134,15 @@ The primary user is an independent personal trainer, especially one who is:
 Train Only may support more established trainers later, but it should not become gym,
 studio, or enterprise-management software during the early product stages.
 
+The audience includes both full-time trainers and trainers who work part-time or as a
+side gig. Both groups should share one strong operational foundation, while dashboard
+priorities, guidance, and scenario tools may later adapt to the trainer's actual
+availability, goals, costs, and commitments.
+
+See `TrainerBusinessFit.md` for the approved direction on trainer operating modes,
+side-gig differentiation, facility costs, income-capacity scenarios, and local
+affordability context.
+
 ---
 
 ## Market Position
@@ -273,6 +282,7 @@ Good early inputs:
 - Experience level
 - General location
 - Biggest current struggle
+- Facility or gym-cost arrangement when it materially affects earnings
 
 These inputs may be collected through a short Business Health Scan when that feature
 stage begins. The scan should deliver value quickly and should not repeat questions the
@@ -287,6 +297,9 @@ Derive from app activity when possible:
 - Payments received
 - Schedule load
 - Package expiration pressure
+
+Trainer operating mode may later personalize defaults and presentation, but actual
+availability, pricing, costs, and commitments should drive calculations.
 
 This keeps onboarding lighter and makes recommendations more credible.
 
@@ -318,6 +331,12 @@ Preserve these ideas, but do not place them in the first release:
 - Marketing spend, leads, conversions, conversion rate, and acquisition cost
 - Retention analysis
 - Location-aware market comparisons with source dates and confidence
+- Local affordability context using sourced median household income for the trainer's
+  service area
+- Facility-cost and effective-earnings scenarios
+- Tailored full-time and part-time/side-gig dashboards
+- Side-gig capacity, committed-workload, and "Can I comfortably accept another client?"
+  tools
 - Competition or platform-saturation indicators
 - Context-aware app and lead-platform recommendations
 - Monthly or weekly business plans

@@ -23,6 +23,11 @@ AI agents are part of the core product identity. The first public release should
 at least one useful agent-driven workflow, while more autonomous and coordinated agents
 will be introduced only after their tools and approval rules are reliable.
 
+The approved trainer-fit direction is documented in `TrainerBusinessFit.md`. It covers
+full-time and part-time/side-gig personalization, realistic capacity, income goals,
+facility costs, local affordability context, tailored dashboards, and the psychological
+goal of reducing the trainer's mental load without becoming a life-management app.
+
 ---
 
 # SECTION 1 — IDEAS

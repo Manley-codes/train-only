@@ -101,6 +101,7 @@ Status: In Progress
 - Calculate future session obligation
 - Calculate capacity pressure
 - Calculate income goal gap
+- Add basic facility-cost inputs when needed for realistic earnings scenarios
 - Show explainable health states instead of an arbitrary overall score
 - Generate one rule-based Next Best Move
 - Validate thresholds, terminology, and recommendations with real trainers
@@ -116,6 +117,11 @@ Status: In Progress
 - Add marketing ROI and lead-conversion tracking
 - Add recommendation history and business-plan updates
 - Add market and location analysis only with trustworthy source data
+- Add local affordability context using sourced median household income, geography,
+  source dates, and clear limitations
+- Add optional trainer operating modes and tailored full-time/side-gig dashboard
+  priorities after the shared business foundation is stable
+- Add side-gig capacity and client-acceptance scenarios after validation with trainers
 - Add AI-generated explanations after rule-based guidance is reliable
 - Expand specialist-agent capabilities and controlled autonomy
 - Add Chief-of-Staff-style coordination only after individual agents are reliable

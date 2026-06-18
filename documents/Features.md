@@ -129,6 +129,7 @@ Future user-facing name TBD. "Trainer Business Health" is the working name for n
 - Enter monthly personal expenses and income goals
 - Set a maximum number of sessions per week
 - Set their current session rate per client
+- Record relevant gym or facility costs
 - View a sustainability dashboard showing earnings vs expenses
 
 **Business Health guidance (future):**
@@ -145,6 +146,12 @@ Future user-facing name TBD. "Trainer Business Health" is the working name for n
 - Warn when the trainer's current workload and pricing model may be becoming unsustainable
 - Suggest when to raise rates or lock in longer packages ahead of slow seasons
 - Flag when the trainer may be undercharging relative to their market
+- Compare income goals with realistic availability, pricing, and facility costs
+- Estimate sessions needed to cover recurring facility costs
+- Show revenue after recorded business costs without presenting it as take-home pay
+- Later personalize dashboard priorities for full-time and part-time/side-gig trainers
+- Later provide sourced local affordability context using median household income for
+  the trainer's service area
 
 **Notes:**
 - Personal financial data is sensitive — security and trust are essential
@@ -165,6 +172,12 @@ Future user-facing name TBD. "Trainer Business Health" is the working name for n
   cash need but create long-term workload stress.
 - The feature should feel like it is protecting the trainer from overwork and
   undercharging, not judging them.
+- Trainer mode should tailor the experience, while actual availability, pricing, costs,
+  and commitments drive the calculations.
+- Part-time/side-gig mode should be tailored, not reduced. Core business tools should
+  remain available across modes.
+- Local household income is one market-context signal, not an automatic pricing rule.
+- External market data must show its source, geography, date, and limitations.
 
 ---
 
