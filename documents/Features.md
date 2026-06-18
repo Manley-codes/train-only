@@ -82,6 +82,11 @@
 - This pillar benefits the most from the AI agent layer
 - Phase 1 will be manual with smart templates
 - Goal is to help trainers who are not naturally strong at sales
+- Future Business Runway workflows may activate lead follow-up, past-client
+  reactivation, or referral templates when fixed-cost pressure is detected
+- Client acquisition should not activate automatically when collecting unpaid balances,
+  reviewing costs, or protecting capacity would be safer
+- Messages and campaigns require trainer review and approval
 
 ---
 
@@ -152,6 +157,11 @@ Future user-facing name TBD. "Trainer Business Health" is the working name for n
 - Later personalize dashboard priorities for full-time and part-time/side-gig trainers
 - Later provide sourced local affordability context using median household income for
   the trainer's service area
+- Later detect Business Runway pressure when fixed costs are approaching and projected
+  revenue, pipeline strength, or client capacity require attention
+- Suggest a safe response order before recommending new-client acquisition
+- Warn when a short-term promotion would create harmful pricing or future-session
+  pressure
 
 **Notes:**
 - Personal financial data is sensitive — security and trust are essential

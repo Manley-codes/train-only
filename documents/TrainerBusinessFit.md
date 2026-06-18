@@ -415,6 +415,151 @@ retains control.
 
 ---
 
+## Business Runway And Pipeline Recovery
+
+**Status:** Strong future Business Health workflow; not an immediate implementation
+requirement.
+
+### Problem
+
+A trainer may operate close enough to the edge that one new client's payment is
+immediately consumed by a gym fee or another fixed business cost. When the due date
+approaches, the trainer may panic, lower prices, sell an unhealthy package, or accept
+clients they do not have room to serve.
+
+The deeper problem is not simply that a gym bill is due. It is that the trainer lacks
+enough business runway to cover near-term fixed costs without making rushed decisions.
+
+### Detection
+
+A future Business Runway Alert may consider:
+
+- Facility or fixed business cost due soon
+- Projected training revenue below the near-term operating target
+- Low active-client count
+- Weak lead or prospect pipeline
+- Unpaid balances that may be collectible
+- Available capacity for another client
+- Future-session obligations already owed
+- Effective session rate and package profitability
+- Cash collected compared with future labor created
+
+The system should not trigger acquisition merely because one bill is approaching. It
+must first determine whether the trainer has capacity and whether another action would
+solve the pressure more safely.
+
+### Safe Action Order
+
+Possible responses should be evaluated in a responsible order:
+
+1. Review collectible unpaid balances.
+2. Follow up with existing interested leads.
+3. Reconnect with appropriate past clients.
+4. Prepare a referral request for current clients.
+5. Review unused schedule capacity.
+6. Consider a limited starter offer that protects the standard rate.
+7. Review facility cost, package pricing, or other business structure when the pressure
+   is recurring.
+
+Sometimes the correct Next Best Move is:
+
+> Follow up on two unpaid balances.
+
+It should not automatically be:
+
+> Find another client.
+
+### Pricing And Promotion Safeguards
+
+The app should not default to lowering the trainer's standard rate. Panic discounts may
+produce immediate cash while creating low effective rates, poor-fit clients, and more
+future sessions than the trainer can comfortably deliver.
+
+Safer possibilities include:
+
+- Limited starter package
+- Paid assessment
+- Referral credit
+- Bring-a-friend session
+- Short package with clear expiration
+- Limited opening at the normal rate
+
+Before presenting an offer, Train Only should show:
+
+- Immediate cash generated
+- Effective session rate
+- Future sessions created
+- Facility-cost coverage
+- Resulting capacity and committed-workload pressure
+
+Example:
+
+```text
+3-session starter package
+Immediate revenue: $180
+Effective rate: $60 per session
+Future sessions added: 3
+Gym fee coverage after recorded costs: partial
+```
+
+### Progressive Capability
+
+The workflow should develop in stages:
+
+1. **Detection**
+   - Explain the upcoming pressure and the data behind it.
+2. **Suggested actions**
+   - Offer a short list of safe, relevant options.
+3. **Templates**
+   - Prepare referral, lead follow-up, or past-client messages for trainer review.
+4. **Approved automation**
+   - Run only workflows the trainer explicitly selects and approves.
+5. **Agent support**
+   - Later choose and explain the strongest move using reliable Business Health and
+     pipeline data.
+
+Train Only should not become an emergency sales bot that contacts people aggressively
+when bills are due.
+
+The intended experience is:
+
+> Train Only detects business pressure early and helps the trainer activate a controlled
+> pipeline-recovery workflow before panic decisions become necessary.
+
+### Example Alert
+
+```text
+BUSINESS RUNWAY
+Gym fee due in 6 days
+Projected client revenue is below your near-term operating target
+2 unpaid balances may need follow-up
+Capacity available for 1 additional weekly client
+```
+
+Possible Next Best Move:
+
+> Follow up on the unpaid balances first. If the gap remains, review three warm leads
+> before creating a new promotion.
+
+### Why It Fits Train Only
+
+This workflow joins Trainer Business Health and Client Acquisition without turning
+either one into generic marketing automation.
+
+It can help prevent:
+
+- Panic discounting
+- Underpricing
+- Selling more sessions than the trainer can deliver
+- Spammy outreach
+- Accepting poor-fit clients
+- Treating new-client money as relief without considering future labor
+
+This is a strong future idea because it comes directly from a real trainer pain point
+and turns scattered business information into one practical, controlled response.
+
+---
+
 ## Tone And Psychological Appeal
 
 Train Only should make the trainer feel:

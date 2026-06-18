@@ -122,6 +122,8 @@ Status: In Progress
 - Add optional trainer operating modes and tailored full-time/side-gig dashboard
   priorities after the shared business foundation is stable
 - Add side-gig capacity and client-acceptance scenarios after validation with trainers
+- Add Business Runway detection and controlled pipeline-recovery workflows after
+  facility costs, capacity, unpaid balances, and lead data are reliable
 - Add AI-generated explanations after rule-based guidance is reliable
 - Expand specialist-agent capabilities and controlled autonomy
 - Add Chief-of-Staff-style coordination only after individual agents are reliable

@@ -337,6 +337,7 @@ Preserve these ideas, but do not place them in the first release:
 - Tailored full-time and part-time/side-gig dashboards
 - Side-gig capacity, committed-workload, and "Can I comfortably accept another client?"
   tools
+- Business Runway alerts and controlled pipeline-recovery workflows
 - Competition or platform-saturation indicators
 - Context-aware app and lead-platform recommendations
 - Monthly or weekly business plans
