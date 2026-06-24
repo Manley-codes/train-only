@@ -141,7 +141,7 @@ CREATE TABLE IF NOT EXISTS payments (
                                         client_id      INT            NOT NULL,
                                         package_id     INT,
                                         amount         DECIMAL(10, 2) NOT NULL,
-    payment_date   DATE           NOT NULL,
+    payment_date DATE,
     due_date       DATE,
     payment_method VARCHAR(50),
     payment_type   VARCHAR(20)    NOT NULL DEFAULT 'one_time',

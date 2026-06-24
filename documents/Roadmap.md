@@ -69,11 +69,11 @@ Status: In Progress
 - [x] Add session participants table for future small-group support
 - [x] Create payments table
 - [x] Create workout plan tables
-- [ ] Complete the client-package-payment-session workflow
-- [ ] Add essential database safeguards
-- [ ] Add trainer dashboard and client session-history queries
-- [ ] Verify multiple participants without building class-management scope
-- [ ] Recreate and verify the database from project SQL files
+- [x] Complete the client-package-payment-session workflow
+- [x] Add essential database safeguards
+- [x] Add trainer dashboard and client session-history queries
+- [x] Verify multiple participants without building class-management scope
+- [x] Recreate and verify the database from project SQL files
 
 ### Stage 3 — Backend Foundation
 - Learn the purpose and structure of Spring Boot

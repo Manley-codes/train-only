@@ -89,13 +89,20 @@ Records connect back to the trainer directly or through client/package relations
 | client_id | INT | Foreign key → clients |
 | package_id | INT | Foreign key → packages |
 | amount | DECIMAL(10,2) | |
-| payment_date | DATE | |
+| payment_date | DATE | Nullable until money is actually received |
 | due_date | DATE | |
 | payment_method | VARCHAR(50) | Cash, Venmo, Zelle, Stripe, etc |
 | payment_type | VARCHAR(20) | one_time or recurring |
 | status | VARCHAR(20) | paid, pending, overdue |
 | notes | TEXT | Optional |
 | created_at | DATETIME | |
+
+Payment rows can represent either money already received or money expected later.
+For paid rows, `payment_date` records when the payment happened. For pending or
+overdue rows, `payment_date` can stay blank until the trainer receives the money.
+Train Only should warn the trainer about unpaid balances, but it should not
+automatically punish the client, remove sessions, or enforce late fees in this
+database version.
 
 ---
 

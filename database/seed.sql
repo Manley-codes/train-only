@@ -220,7 +220,7 @@ VALUES (
            @alicia_client_id,
            8,
            CURRENT_DATE,
-           DATE_ADD(CURRENT_DATE, INTERVAL 45 DAY),
+           DATE_ADD(CURRENT_DATE, INTERVAL 10 DAY),
            400.00,
            FALSE,
            'active'
@@ -320,4 +320,61 @@ VALUES (
            @alicia_package_id,
            'cancelled',
            'Alicia cancellation recorded'
+       );
+
+INSERT INTO sessions (
+    trainer_id,
+    scheduled_at,
+    duration_minutes,
+    location,
+    status,
+    notes
+)
+VALUES (
+           @trainer_id,
+           DATE_ADD(CURRENT_TIMESTAMP, INTERVAL 2 HOUR),
+           60,
+           'LA Fitness',
+           'scheduled',
+           'Scheduled today for dashboard testing'
+       );
+
+SET @alicia_today_session_id = LAST_INSERT_ID();
+
+INSERT INTO session_participants (
+    session_id,
+    client_id,
+    package_id,
+    status,
+    notes
+)
+VALUES (
+           @alicia_today_session_id,
+           @alicia_client_id,
+           @alicia_package_id,
+           'scheduled',
+           'Alicia scheduled for today'
+       );
+
+INSERT INTO payments (
+    client_id,
+    package_id,
+    amount,
+    payment_date,
+    due_date,
+    payment_method,
+    payment_type,
+    status,
+    notes
+)
+VALUES (
+           @alicia_client_id,
+           @alicia_package_id,
+           200.00,
+           NULL,
+           DATE_SUB(CURRENT_DATE, INTERVAL 5 DAY),
+           NULL,
+           'one_time',
+           'overdue',
+           'Remaining package balance is overdue'
        );
