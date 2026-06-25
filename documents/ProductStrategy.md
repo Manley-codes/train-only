@@ -309,6 +309,18 @@ This keeps onboarding lighter and makes recommendations more credible.
 
 Next Best Move is a strong candidate for the central guidance experience.
 
+It should represent the one business action most worth the trainer's attention
+right now, based on recorded facts rather than generic advice. The strongest use
+case is catching pressure before it turns into a rushed decision: for example, a
+trainer receives a new package payment, but a gym or facility fee is due soon and
+most of that cash is already spoken for while the trainer still owes the future
+sessions created by the package.
+
+In that situation, Train Only should not simply celebrate the payment or push the
+trainer to sell another package. It should compare near-term obligations, unpaid
+balances, available capacity, package pricing, and future sessions owed, then
+recommend the safest useful focus.
+
 It should:
 
 - Choose one priority instead of producing a wall of advice
@@ -316,6 +328,14 @@ It should:
 - Change only when meaningful business conditions change
 - Show the reason and calculation behind the recommendation
 - Allow the trainer to retain control over the final decision
+- Prefer safer business moves before acquisition when the facts support them, such
+  as collecting overdue balances, reviewing pricing, or protecting capacity
+
+Example:
+
+> Follow up on overdue balances before creating a discount offer. Your gym fee is
+> due soon, but selling another low-priced package may create more future sessions
+> without solving the underlying cash pressure.
 
 The system should be direct and supportive, not judgmental or falsely authoritative.
 
