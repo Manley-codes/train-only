@@ -66,7 +66,8 @@ These are saved for future versions once the core app is complete.
 - In-app video workouts
 - Wearable device integration
 - Nutrition tracking
-- Small-group training support
+- Small-group training feature buildout. The database already supports the
+  structure through `session_participants`; the full user-facing feature is later.
 - Automated billing / charging clients
 - iOS version (connects to same backend when ready)
 

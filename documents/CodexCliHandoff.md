@@ -1,50 +1,64 @@
-# Train Only - Codex CLI Handoff
+# Train Only - Restart Handoff
 
-## Purpose Of This Handoff
+## Current State
 
-This document explains how to continue Train Only in Codex CLI without losing
-the product direction, learning goals, or working rhythm.
+- Branch: `main`
+- Local branch is ahead of `origin/main` by 2 commits.
+- Recent committed milestones:
+  - `complete database foundation`
+  - `add Train Only direction north star`
+  - `clarify Next Best Move business pressure guidance`
 
-Train Only should move faster than pure manual practice, but it should still be
-a real learning project. Codex should help build the project professionally while
-teaching the important concepts and protecting the app from becoming generic.
+Current uncommitted work expected:
+
+- `.gitignore`
+- `backend/`
+- this restart handoff and related documentation cleanup
+
+Do not include in commits:
+
+- `.idea/inspectionProfiles/`
+- generated build output such as `backend/target/`
+- local dependency/cache folders such as `backend/.m2/`
+- secrets, passwords, API keys, or real client information
+
+The current project stage is **Stage 3: Backend Foundation**.
 
 ---
 
-## Product Identity
+## Product Direction
 
 Train Only is a business-guided management system for independent personal
 trainers.
 
-It is not meant to become just another broad fitness app or a generic trainer
-CRUD app. Client management, sessions, packages, payments, schedules, and
-workout plans are the data foundation. The long-term identity is trainer
-business guidance:
+The management features are not the final identity by themselves. Clients,
+packages, payments, sessions, schedules, and lightweight workout plans create the
+reliable data foundation. The differentiator is the guidance built from that
+data:
 
-- pricing health
 - session debt visibility
+- pricing pressure
+- package/payment risk
 - trainer sustainability
-- package and payment risk
-- workload and burnout awareness
-- practical business recommendations
-- useful AI-agent assistance
+- capacity and burnout awareness
+- one clear Next Best Move
+- future AI-agent assistance grounded in real backend tools
 
-The guiding promise:
+Business Health is the engine. Mentor-like guidance is the feel. The app should
+advise from recorded facts and calculations, not throw generic motivational tips
+or a wall of options at the trainer.
 
-> Trainers should not have to figure out the business side of personal training
-> alone.
+Train Only should manage, record, warn, and advise. The trainer decides.
 
 ---
 
-## Current Project Stage
+## What Is Already Done
 
-The project has completed the first database foundation milestone.
+The database foundation is complete and committed.
 
-Current database:
+Database name:
 
-- Database name: `train_only_db`
-- SQL files are in `database/`
-- Main project documents are in `documents/`
+- `train_only_db`
 
 Active tables:
 
@@ -57,281 +71,147 @@ Active tables:
 7. `workout_plans`
 8. `workout_plan_days`
 
-Database design decisions:
+Important database decisions:
 
-- `sessions` represents a training event on the calendar.
-- `session_participants` connects clients/packages to a session.
-- One-on-one sessions still work as one session with one participant.
-- Future small-group sessions can work as one session with multiple participants.
-- Small-group support is structural only for now. Do not build full class or
-  group-training management yet.
-- `sessions_remaining` is not stored. It is calculated from completed session
-  history.
-- `payment_date` is nullable because pending or overdue payment records may
-  represent expected money that has not been received yet.
-- Payment warnings should inform the trainer, not automatically punish clients,
+- `sessions` represents the calendar/training event.
+- `session_participants` connects clients and packages to a session.
+- One-on-one training is one session with one participant.
+- Small-group training is **structure now, feature later**.
+- `sessions_remaining` is calculated from completed session history, not stored.
+- `payment_date` can be blank for pending or overdue payment records.
+- Payment warnings inform the trainer; they do not automatically punish clients,
   remove sessions, or enforce late fees.
 - Workout plans are lightweight weekly routines, not a full exercise library.
 
-Recent verified database work:
-
-- Dashboard queries were added for today's sessions, upcoming sessions, expiring
-  packages, and pending/overdue payment warnings.
-- A client session-history query was added.
-- A temporary multiple-participant test was added using `START TRANSACTION` and
-  `ROLLBACK`.
-- The database was dropped, recreated, seeded, and tested successfully from the
-  project SQL files.
-
-Pending commit:
-
-- `database/schema.sql`
-- `database/seed.sql`
-- `database/test_queries.sql`
-- `documents/DatabaseDesign.md`
-- `documents/Roadmap.md`
-- this handoff file
-
-Do not include:
-
-- `.idea/inspectionProfiles/`
-
-Recommended commit message:
-
-`complete database foundation`
+The database was rebuilt and verified from the project SQL files.
 
 ---
 
-## User Role
+## Where We Left Off
 
-The user should act as the Product Owner and Learning Lead.
+The uncommitted `backend/` folder contains an early Spring Boot scaffold.
 
-The user owns:
+Known backend shape:
 
-- product direction
-- final decisions
-- trainer workflow judgment
-- business-health direction
-- AI-agent vision
-- deciding when deeper explanation is needed
-- reviewing whether the app feels unique and useful
-- commits and pushes, unless explicitly asking Codex to do them
+- `TrainOnlyBackendApplication`
+- `ClientController`
+- `ClientService`
+- `ClientRepository`
+- `ClientSummary`
+- `ClientDataAccessException`
+- `ApiError`
+- `GlobalExceptionHandler`
 
-The user should not manually type every repeated structure forever. That will
-slow the project down too much. The user should implement first-time concepts or
-important learning pieces, then let Codex handle repetition once the pattern is
-understood.
+The first endpoint shape is:
 
----
+```text
+GET /api/trainers/{trainerId}/clients
+```
 
-## Codex Role
+What has been verified:
 
-Codex should act as Senior Engineer, Tutor, and Scope Guard.
+- The backend structure previously compiled through Maven.
 
-Codex owns:
+What has not been fully verified:
 
-- reviewing the repo before making changes
-- proposing the next small milestone
-- implementing approved code changes
-- explaining important concepts clearly
-- writing project documentation and handoffs
-- running tests when possible
-- diagnosing errors
-- warning about scope creep
-- protecting the product from becoming generic
-- reminding the user when to commit or push
+- Spring Boot server starts cleanly.
+- Spring context loads correctly.
+- Backend connects to MySQL.
+- `GET /api/trainers/1/clients` returns real seeded client data.
 
-Codex should not blindly agree with every idea. Honest product and engineering
-analysis matters. If an idea is weak, too broad, generic, or likely to distract
-from the core product, say so clearly.
+Important concern:
+
+- `ClientRepository` currently uses raw `DriverManager` JDBC. Before committing
+  the backend scaffold, decide whether to replace it with Spring-managed database
+  access such as `DataSource` plus `JdbcClient` or `JdbcTemplate`. The first
+  backend pattern matters because packages, sessions, payments, and dashboard
+  endpoints will likely follow it.
 
 ---
 
-## Working Modes
+## Next Task
 
-Use these modes intentionally in Codex CLI.
+Do not start new features yet.
 
-### Learning Mode
+Next task:
 
-Use when a concept is new.
+**Verify and clean up the Spring Boot backend foundation before committing it.**
 
-Codex should explain the purpose, show the pattern, and guide a small
-implementation step.
+Done means:
 
-Examples:
+- `.gitignore` excludes local/build artifacts.
+- Backend builds successfully.
+- Spring Boot server starts.
+- Database credentials are handled through local config or environment values,
+  not committed secrets.
+- Backend connects to local MySQL `train_only_db`.
+- `GET /api/trainers/1/clients` returns the seeded clients.
+- The repository/data-access pattern is acceptable to copy for the next backend
+  features.
+- Generated folders and local IDE settings stay out of git.
 
-- first Spring Boot controller
-- first service class
-- first repository/database connection
-- first API endpoint
-- first authentication concept
+Recommended CLI prompt:
 
-### Build Mode
-
-Use when the pattern is familiar.
-
-Codex can implement directly, then summarize what changed and why.
-
-Examples:
-
-- repeated CRUD endpoints
-- repeated validation rules
-- routine documentation updates
-- test scaffolding
-
-### Review Mode
-
-Use when the user wants feedback only.
-
-Codex should inspect, explain risks, and suggest next steps without editing.
-
-### Planning Mode
-
-Use when deciding product direction.
-
-Codex should classify ideas with:
-
-- Build Now
-- Save Later
-- Reject
-- Needs More Thought
-- Differentiation Risk
-- Learning Focus
-
-### Debug Mode
-
-Use when something breaks.
-
-Codex should investigate the cause, explain it, then either fix it or guide the
-user through the fix.
+```text
+Review the uncommitted backend scaffold and .gitignore. Do not commit yet.
+Explain the current Spring Boot structure, verify the build, verify server
+startup, verify MySQL connection, and test GET /api/trainers/1/clients. Recommend
+whether to refactor ClientRepository from raw DriverManager to Spring-managed
+DataSource + JdbcClient/JdbcTemplate before committing.
+```
 
 ---
 
-## Efficiency Rules
+## How We Build From Here
 
-The project should move at a steady professional pace.
+Use a professional process, but keep it fitted to Train Only.
 
-Use this split:
+Before building:
 
-The user does:
+- Check `git status`.
+- Confirm the current milestone.
+- State the task and why it matters for Train Only.
+- Define what “done” means.
 
-- first-time concepts
-- product decisions
-- occasional small SQL or Java learning exercises
-- reviewing app direction
-- commits and pushes when requested
+While building:
 
-Codex does:
+- Keep changes small.
+- Explain new concepts when they first appear.
+- Move faster on repeated patterns after the concept is understood.
+- Avoid unrelated refactors.
+- Do not let management features drift into a generic trainer app.
 
-- repeated structure
-- boilerplate
-- refactors
-- documentation
-- handoffs
-- test setup
-- error diagnosis
-- production-style cleanup
+After building:
 
-Do not let learning turn into manually building every brick. Real learning also
-comes from reading code, modifying code, testing, debugging, and explaining
-tradeoffs.
+- Verify behavior, not just file changes.
+- Summarize what changed and what remains unverified.
+- Commit one clean milestone at a time.
+- Push after meaningful checkpoints, especially before switching tools or chats.
 
----
+Train Only check:
 
-## Product Guardrails
+```text
+Does this create reliable business data or support future Business Health guidance?
+```
 
-Before major features, ask:
+If not, the work may still be necessary, but it should be clearly treated as
+foundation, not product identity.
 
-- Does this support the trainer business-health direction?
-- Does this create useful operational data?
-- Is this app becoming generic trainer software?
-- Is this MVP or future scope?
-- Is this managing trainer decisions, or trying to control them?
+Learning check:
 
-Important distinction:
-
-Train Only should manage, record, warn, and advise. The trainer decides.
-
-Avoid building automatic punishments or rigid business policies too early. For
-example, overdue payments should create warnings and reminders, not automatic
-late fees or forced session cancellation.
+- Slow down for first-time concepts like Spring Boot flow, dependency injection,
+  database access, validation, authentication, and API design.
+- Move faster once the pattern is familiar.
+- Ask light knowledge-check questions when useful, but keep progress moving.
 
 ---
 
-## AI-Agent Direction
+## Suggested New Chat Prompt
 
-AI agents are important to the final identity of Train Only, but they should be
-introduced on top of reliable backend tools and trustworthy calculations.
-
-The first public version should include at least one useful agent-driven workflow,
-but Codex should not rush into a broad "AI chief of staff" before the foundation
-is stable.
-
-Future agent types that fit Train Only:
-
-- Business Health Agent: explains pricing, income, capacity, and session debt
-- Scheduling Agent: detects conflicts and suggests workable session times
-- Payment Agent: flags unpaid balances and prepares reminders
-- Client Acquisition Agent: helps analyze leads and follow-up
-- Plan Agent: helps organize workout-plan adjustments
-
-Agents should be human-in-the-loop for meaningful actions. The trainer should
-approve messages, payment reminders, schedule changes, or record changes before
-they happen.
-
----
-
-## Next Recommended Milestone
-
-Move into Stage 3: Backend Foundation.
-
-Recommended order:
-
-1. Explain what Spring Boot is and why Train Only needs it.
-2. Create a minimal Spring Boot backend structure.
-3. Connect the backend to MySQL.
-4. Build the first simple read endpoint from real database data.
-5. Add one CRUD flow slowly as a learning example.
-6. Let Codex handle repeated CRUD structure after the user understands the first
-   pattern.
-7. Keep business-health calculations out of the first backend step until the
-   basic backend/database connection is reliable.
-
-Suggested first backend learning target:
-
-Show a list of clients for a trainer from MySQL through a Spring Boot endpoint.
-
-This is simple enough to learn the backend flow, but still directly connected to
-the real app.
-
----
-
-## Communication Rules
-
-Codex should:
-
-- review the repo before acting
-- state what it is about to change
-- avoid large code dumps unless necessary
-- explain concepts clearly but not excessively
-- slow down when the user asks
-- move faster when the pattern is already learned
-- ask for direction only when the decision is truly product-sensitive
-- remind the user when a milestone should be committed or pushed
-
-The user may ask for deeper explanation at any time. Otherwise, keep explanations
-focused and practical.
-
----
-
-## Current Pause Point
-
-Database foundation is complete and verified.
-
-Before starting Spring Boot/backend work:
-
-1. Review git status.
-2. Confirm only intended files are staged.
-3. Commit the database foundation.
-4. Push to GitHub.
-5. Begin Stage 3 with a Spring Boot explanation and setup plan.
+```text
+Please review the repo first, especially documents/Direction.md,
+documents/Roadmap.md, and documents/CodexCliHandoff.md. Check git status before
+making changes. We are restarting Train Only in a cleaner, more professional
+workflow. Current goal: verify and clean up the uncommitted Spring Boot backend
+foundation before committing it. Do not start new features yet.
+```

@@ -163,9 +163,11 @@ from. These are the antidote — and they're what make staying agile *safe*:
 
 ---
 
-## 8. One open contradiction to clean up
+## 8. Small-group wording
 
-`Ideas.md` lists "Small-group training support" under *Future Ideas (Out of Scope For
-Now)*, but the schema (`session_participants`) and several docs intentionally build the
-*structure* for small groups today. Not a real conflict — **structure now, feature later** —
-but the wording could mislead future-you. Recommend a one-line clarification in `Ideas.md`.
+Small-group training follows the rule: **structure now, feature later**.
+
+The schema supports attaching more than one client to a session through
+`session_participants`, but the full user-facing small-group management feature remains a
+later roadmap item. This keeps the foundation flexible without pulling the current build
+away from backend basics and trainer business-health direction.

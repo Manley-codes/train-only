@@ -56,7 +56,7 @@ Status: In Progress
 - [ ] Sketch app screens (wireframes)
 
 ### Stage 2 — Database Foundation
-Status: In Progress
+Status: Complete
 
 - [x] Learn basic MySQL Workbench flow
 - [x] Create train_only_db database
@@ -76,13 +76,18 @@ Status: In Progress
 - [x] Recreate and verify the database from project SQL files
 
 ### Stage 3 — Backend Foundation
-- Learn the purpose and structure of Spring Boot
-- Set up the Java and Spring Boot backend
-- Connect the backend to MySQL
-- Implement core trainer, client, package, payment, and session operations
-- Add validation, error handling, and authentication foundations
-- Design backend actions as safe tools that future agents can call
-- Research and select an agent framework/provider based on tool use, approvals, privacy,
+Status: In Progress
+
+- [x] Learn the purpose and structure of Spring Boot
+- [x] Create initial Java and Spring Boot backend scaffold
+- [ ] Verify the backend server starts cleanly
+- [ ] Connect the backend to MySQL through Spring-managed database access
+- [ ] Verify `GET /api/trainers/{trainerId}/clients` returns real database data
+- [ ] Add focused backend tests for the first endpoint/service path
+- [ ] Implement core trainer, client, package, payment, and session operations
+- [ ] Add validation, error handling, and authentication foundations
+- [ ] Design backend actions as safe tools that future agents can call
+- [ ] Research and select an agent framework/provider based on tool use, approvals, privacy,
   evaluation, cost, and Java/Spring Boot integration
 
 ### Stage 4 — Trainer Management MVP
