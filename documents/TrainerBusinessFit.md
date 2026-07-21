@@ -52,7 +52,7 @@ Full-time and part-time trainers share the same operational foundation:
 - Pricing
 - Business costs
 - Income and capacity goals
-- Trainer Business Health
+- Business Health
 
 Trainer mode should personalize priorities, language, dashboard order, and suggested
 workflows. It should not create a superior full-time product and an inferior side-gig
@@ -543,7 +543,7 @@ Possible Next Best Move:
 
 ### Why It Fits Train Only
 
-This workflow joins Trainer Business Health and Client Acquisition without turning
+This workflow joins Business Health and Client Acquisition without turning
 either one into generic marketing automation.
 
 It can help prevent:

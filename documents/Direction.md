@@ -144,7 +144,7 @@ from. These are the antidote — and they're what make staying agile *safe*:
   top of trustworthy tools.
 - The current foundation (8 tables, backend Stage 3) is correct and keeps going. Nothing in
   today's direction work changes your immediate next step.
-- Trainer Business Health, full/part-time personalization, facility costs, capacity,
+- Business Health, full/part-time personalization, facility costs, capacity,
   income-goal scenarios, Business Runway — all still valid, all still later.
 - This work *names and bounds* something already implied across `ProductStrategy.md`,
   `TrainerBusinessFit.md`, and `Features.md`. It did not replace them.

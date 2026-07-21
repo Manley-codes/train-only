@@ -13,7 +13,7 @@ It combines reliable management of clients, packages, payments, sessions, schedu
 and lightweight workout plans with future guidance about pricing, workload, income
 pressure, and business sustainability.
 
-The management foundation creates trustworthy data. Trainer Business Health will later
+The management foundation creates trustworthy data. Business Health will later
 use that data to explain risks and recommend one clear Next Best Move.
 
 Android remains the primary planned application. A future desktop view and client-facing
@@ -77,7 +77,8 @@ These are saved for future versions once the core app is complete.
 
 - [x] What is the app's name? **Train Only** ✓
 - [ ] Will clients download the same app as trainers, or a separate app?
-- [ ] What payment processor should Phase 2 target? (Stripe recommended)
+- [ ] What payment provider should the later Client Experience and Payments stage
+  target? (Stripe is a candidate, not a final decision.)
 - [ ] Should workout completions sync with the session tracker automatically?
 
 ---

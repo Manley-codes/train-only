@@ -3,11 +3,13 @@
 ## Current State
 
 - Branch: `main`
-- Local branch is ahead of `origin/main` by 2 commits.
+- Check Git status for the live ahead/behind count before continuing; do not rely on
+  a hard-coded count in this handoff.
 - Recent committed milestones:
   - `complete database foundation`
   - `add Train Only direction north star`
   - `clarify Next Best Move business pressure guidance`
+  - `refresh Train Only restart handoff`
 
 Current uncommitted work expected:
 
@@ -36,7 +38,7 @@ packages, payments, sessions, schedules, and lightweight workout plans create th
 reliable data foundation. The differentiator is the guidance built from that
 data:
 
-- session debt visibility
+- future-session obligation visibility
 - pricing pressure
 - package/payment risk
 - trainer sustainability

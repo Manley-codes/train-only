@@ -34,9 +34,10 @@
 - See their current balance or package status
 
 **Notes:**
-- Phase 1 will be manual payment logging (trainer records it themselves)
-- Phase 2 (future) may integrate with Stripe — avoids the PayPal-style blocking issues
-- No automatic charging in Phase 1
+- The Trainer Management MVP begins with manual payment logging by the trainer
+- The later Client Experience and Payments stage may integrate a payment provider;
+  provider selection is not final
+- Automatic charging comes only after the manual payment workflow is reliable
 
 ---
 
@@ -80,7 +81,7 @@
 
 **Notes:**
 - This pillar benefits the most from the AI agent layer
-- Phase 1 will be manual with smart templates
+- The early acquisition workflow will be manual with smart templates
 - Goal is to help trainers who are not naturally strong at sales
 - Future Business Runway workflows may activate lead follow-up, past-client
   reactivation, or referral templates when fixed-cost pressure is detected
@@ -106,6 +107,10 @@
 **Notes:**
 - Package terms should be acknowledged by the client at purchase (simple confirmation step)
 - This eliminates the "I didn't know" conversation before it starts
+- A package creates future-session obligation when client commitment is confirmed;
+  payment status does not determine activation
+- The trainer records commitment manually in the trainer-only MVP; client acknowledgment
+  can provide confirmation when the client experience is introduced
 
 ---
 
@@ -124,11 +129,18 @@
 - The remaining session count is the single source of truth — both trainer and client
   see the exact same number
 - Disputed counts always resolve to the app's logged history
+- A session is consumed automatically only when both the session event and participant
+  outcome are completed
+- A late cancellation or no-show consumes a session only after explicit trainer confirmation
+- When packages overlap, suggest the earliest-expiring active package and allow the
+  trainer to select a different package
+- Preserve and flag unused sessions on an expired package until the trainer resolves them
 
 ---
-## Pillar 7 — Trainer Sustainability (Trainer Business Health)
+## Pillar 7 — Trainer Sustainability (Business Health)
 
-Future user-facing name TBD. "Trainer Business Health" is the working name for now.
+**Business Health** is the current user-facing working name. Trainer sustainability is
+one of the main outcomes the feature is intended to protect.
 
 **Trainer can:**
 - Enter monthly personal expenses and income goals
@@ -166,7 +178,7 @@ Future user-facing name TBD. "Trainer Business Health" is the working name for n
 **Notes:**
 - Personal financial data is sensitive — security and trust are essential
   before this feature is introduced to users
-- Phase 1 will be manual input with basic calculations
+- Business Health V1 will use minimal manual inputs with basic deterministic calculations
 - Rule-based pricing and sustainability guidance should come before AI-generated explanations
 - Future sustainability analysis should consider money pressure, time pressure,
   pricing pressure, and energy pressure.
@@ -174,7 +186,7 @@ Future user-facing name TBD. "Trainer Business Health" is the working name for n
   breakdowns. Example: required monthly personal expenses.
 - Later analysis may compare the trainer's rates against market-rate averages
   for their location, experience level, certifications, and training format.
-- Trainer Business Health should help reveal the hidden cost of prepaid discounts,
+- Business Health should help reveal the hidden cost of prepaid discounts,
   low contract pricing, stretched timelines, and future session obligations.
 - Money received should not automatically be treated as fully earned when the
   trainer still owes future sessions.
@@ -191,15 +203,23 @@ Future user-facing name TBD. "Trainer Business Health" is the working name for n
 
 ---
 
-## AI Agent Operating Principles
+## Automation And AI Agent Operating Principles
 
 - AI agents are a core product feature and should appear in the first public release.
+- Early automation should use reliable built-in workflows with a few trainer settings,
+  not a user-configurable automation builder.
+- Deterministic business logic owns calculations and record validation; automation reacts
+  to known events; agents interpret, prioritize, summarize, and draft.
 - Early agents should use approved backend tools and reliable Train Only data.
 - Agents should perform focused tasks, not exist only as named chat personalities.
-- Consequential actions require trainer approval, including sending messages, changing
-  schedules, modifying prices or package terms, and initiating financial actions.
-- Strong early tasks include daily briefings, issue detection, Next Best Move guidance,
-  and drafting reminders or follow-ups for approval.
+- The first agent workflow should be an Operations Briefing covering today's sessions,
+  unpaid balances, expiring packages, record problems, and one prioritized follow-up.
+- Trainer-enabled standard reminder templates may send automatically. AI-written or
+  customized messages require approval before sending.
+- Consequential actions require trainer approval, including changing schedules, modifying
+  prices or package terms, initiating financial actions, and resolving disputed session use.
+- Later agent tasks include Business Health explanation, Next Best Move guidance, and
+  drafting reminders or follow-ups for approval.
 - Start with a small number of reliable specialist agents.
 - Add Chief-of-Staff-style coordination only after individual agents are dependable.
 

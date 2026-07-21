@@ -1,6 +1,6 @@
 # Train Only Product Strategy
-**Version:** 0.1
-**Last Updated:** June 2026
+**Version:** 0.2
+**Last Updated:** July 2026
 **Status:** Working product direction
 
 ---
@@ -9,7 +9,7 @@
 
 Train Only is a business-guided management system for independent personal trainers.
 
-The management tools create trustworthy operational data. Trainer Business Health
+The management tools create trustworthy operational data. Business Health
 turns that data into clear, explainable guidance.
 
 The product promise is:
@@ -42,18 +42,26 @@ The intended progression is:
 4. Require trainer approval before consequential actions.
 5. Expand agent autonomy only after reliability and trust are demonstrated.
 
-An early agent should perform real work rather than merely generate advice. Good first
-capabilities include:
+The first agent-driven workflow should be an **Operations Briefing**. It should retrieve
+approved operational facts rather than calculate them itself, then present:
 
-- Preparing a daily trainer briefing
-- Finding expiring packages and unpaid balances
-- Detecting scheduling conflicts
-- Identifying unusual future session obligations
-- Producing one data-backed Next Best Move
-- Drafting a reminder or follow-up for trainer approval
+- Today's sessions and scheduling conflicts
+- Unpaid or overdue balances
+- Expiring packages and low remaining-session balances
+- Missing or inconsistent records that need attention
+- One prioritized operational follow-up
+- An optional reminder or follow-up draft for trainer approval
+
+The Business Health Agent follows later, after effective rate, future-session obligation,
+capacity pressure, income-goal gap, and facility-cost rules are deterministic and
+validated.
 
 Early agents should not independently charge or refund money, send client messages,
 cancel sessions, change prices, alter package terms, or delete records.
+
+Trainer-enabled standard reminder templates belong to deterministic automation and may
+send automatically after configuration. AI-written, customized, financial, pricing,
+package-term, or dispute-related messages require per-action trainer approval.
 
 ---
 
@@ -75,10 +83,11 @@ human approval for consequential actions**.
    - This should be the default for messages, schedule changes, pricing changes, and
      financial actions.
 
-3. **Event-driven agents**
-   - The system evaluates conditions when meaningful events occur, such as a failed
-     payment, completed session, expiring package, or schedule conflict.
-   - This avoids constant generic notifications.
+3. **Event-driven automation with agent escalation**
+   - Deterministic automation evaluates known conditions when meaningful events occur,
+     such as a completed session, overdue payment, expiring package, or schedule conflict.
+   - An agent becomes involved only when the result needs prioritization, explanation,
+     summarization, or a drafted response.
 
 4. **Specialist agents**
    - Each agent owns a clear responsibility, such as Business Health, Scheduling,
@@ -97,6 +106,22 @@ human approval for consequential actions**.
 - Several named agents that only produce generic text
 - Agents with direct unrestricted database access
 - AI-generated calculations when deterministic code can calculate the answer exactly
+- A user-configurable automation builder before built-in workflows are proven useful
+
+### Automation And Agent Boundary
+
+Train Only should keep four responsibilities distinct:
+
+1. **Business logic** calculates and validates exact facts such as balances, remaining
+   sessions, expiration, future-session obligation, and capacity pressure.
+2. **Automation** reacts to known events and performs repeatable, predefined steps.
+3. **Agents** interpret competing signals, explain priority, summarize context, and
+   prepare drafts through approved backend tools.
+4. **The trainer** approves ambiguous or consequential actions before automation carries
+   them out.
+
+The early product should use built-in automations with a small number of trainer settings,
+not an arbitrary trigger-and-action builder.
 
 ### Technology Decision Still Required
 
@@ -161,13 +186,20 @@ Its differentiation should be:
 Business tools alone are not unique. The stronger opportunity is explainable business
 guidance focused on the trainer's own financial and workload health.
 
-Official product references reviewed:
+### Focused Research Decisions — July 2026
 
-- ABC Trainerize: https://www.trainerize.com/features/
-- Everfit: https://everfit.io/
-- TrueCoach: https://truecoach.co/features/
-- My PT Hub: https://www.mypthub.net/features/
-- PT Distinction: https://www.ptdistinction.com/features
+| Reference | Role In The Research | Train Only Decision |
+|-----------|----------------------|---------------------|
+| [TrainerSuite](https://trainersuite.app/) | Closest direct comparison | Learn from its calendar-first records, package credits, and separation of collected versus earned income. Tracking and projections alone are not sufficient differentiation; Train Only must go further into Business Health and one Next Best Move. |
+| [HoneyBook](https://www.honeybook.com/) | Primary workflow and automation reference | Strongly borrow connected client actions, event-driven workflows, approval gates, and AI-assisted preparation. Do not copy its generic CRM and project-management breadth. |
+| [Square Appointments](https://squareup.com/us/en/appointments/pricing) | Scheduling and payment-protection reference | Learn from the connection between booking, packages, reminders, deposits, and cancellation policies. Use providers for payment infrastructure rather than rebuilding it. |
+| [QuickBooks Solopreneur](https://quickbooks.intuit.com/learn-support/en-us/help-article/compare-products/introduction-quickbooks-solopreneur/L8TodvTOE_US_en_US) | Financial-record and guidance reference | Learn from record-grounded financial insight and scenario planning. Train Only should interpret training-specific obligations without becoming accounting or tax software. |
+| [TrainerOS](https://traineros.app/) and [TrainerOS AI](https://www.traineros.uk/) | Secondary business and briefing references | Study storefront, billing, utilization, and briefing patterns, but do not let early or fragmented products drive Train Only's architecture. |
+| [ABC Trainerize](https://www.trainerize.com/features/) | Established category reference and scope warning | Learn from its connected client experience and broad appeal. Avoid reproducing its workout, nutrition, habit, community, and add-on complexity. |
+
+This comparison set is closed for the current planning cycle. Additional competitor
+discovery should resume only when a specific product decision requires evidence that
+these references cannot provide.
 
 ---
 
@@ -183,7 +215,7 @@ The existing management foundation remains necessary:
 - Scheduling and cancellation history
 - Lightweight workout-plan organization
 
-These features are not separate from Trainer Business Health. They produce the data
+These features are not separate from Business Health. They produce the data
 needed for reliable analysis.
 
 Train Only should not give important business advice from questionnaire answers alone
@@ -191,9 +223,69 @@ when the app can calculate the answer from real activity.
 
 ---
 
+## Core Business Workflow
+
+The working business flow is:
+
+> Possible client later → client record → package commitment → payments and scheduled
+> sessions → completed delivery → reliable business facts → Business Health → one Next
+> Best Move → trainer-approved action
+
+Prospect statuses remain a later decision. They do not block the reliable
+client-package-payment-session workflow.
+
+### Package And Session Rules
+
+- A package creates a future-session obligation when the trainer confirms that the client
+  has committed. Payment status does not control activation.
+- In the trainer-only MVP, the trainer records commitment manually. Later client
+  acknowledgment of visible package terms can provide the confirmation.
+- Completed session and participant records consume a session automatically.
+- A late cancellation or no-show consumes a session only after an explicit trainer
+  decision based on the trainer's policy.
+- A client may buy a new package before finishing the current package. Train Only should
+  suggest the earliest-expiring active package for session use, show the selection, and
+  allow the trainer to override it.
+- An expired package with unused sessions should be flagged for resolution. The unused
+  sessions must not be silently erased or treated as an ordinary active obligation.
+- Payments remain separate from package commitment, earned value, and future-session
+  obligation.
+
+These rules guide later package and session operations. They do not require reopening the
+completed database-foundation stage before the current backend scaffold is verified.
+
+### HoneyBook Pattern Fit
+
+Train Only should strongly borrow HoneyBook's connected-workflow pattern: reusable
+package offerings later, clear client actions, event-driven steps, owner controls, and
+AI that helps prepare work while explicit rules execute it.
+
+Train Only should not copy HoneyBook's overall breadth. Generic project pipelines,
+arbitrary tags, full contract and invoice builders, accounting, payment processing, and
+a broad automation canvas would pull the product away from trainer-specific Business
+Health and into generic small-business software.
+
+### Workflow Drift Test
+
+Before adding a workflow or automation, ask:
+
+1. Does it improve the reliability of trainer-business records?
+2. Does it provide trustworthy input for Business Health or a Next Best Move?
+3. Does it reduce administrative or mental load without expanding into training-delivery
+   features?
+4. Are exact calculations kept in business logic rather than delegated to AI?
+5. Does the trainer retain appropriate control over consequential actions?
+
+A generic contact list, calendar, payment screen, CRM pipeline, or AI assistant does not
+pass by itself. It must connect to trainer-specific package, payment, session, capacity,
+or guidance data in a way that advances the product thesis.
+
+---
+
 ## Current Project Position
 
-The current database foundation already supports:
+Stage 2 — Database Foundation is complete for the current project scope and committed.
+The database foundation supports:
 
 - Trainers and clients
 - Client-owned packages
@@ -204,9 +296,18 @@ The current database foundation already supports:
 - Effective price-per-session calculations
 - Lightweight workout plans
 
-The current milestone is to finish realistic database workflows, add safeguards,
-complete dashboard and history queries, verify participant behavior, and recreate the
-database cleanly from the project SQL files.
+The committed SQL includes realistic seed workflows, database safeguards, trainer
+dashboard and client-history queries, multi-participant verification, and the files
+needed to recreate the current foundation when starting from an empty database.
+
+The active milestone is Stage 3 — Backend Foundation. Before expanding product scope,
+the uncommitted Spring Boot scaffold must be verified for clean startup, Spring-managed
+database-access design, a real MySQL connection, the first trainer-client endpoint, and
+focused tests.
+
+"Complete" here means the database meets the current foundation blueprint. It does not
+mean the persistence layer is production-final. Backend validation, authentication,
+migrations, and later Business Health data remain future work.
 
 No current database work needs to be discarded because of the product-strategy change.
 The existing package, payment, session, and attendance data is the foundation for later
@@ -225,7 +326,7 @@ Business Health calculations.
 
 ---
 
-## Trainer Business Health V1
+## Business Health V1
 
 The first Business Health release should remain deliberately narrow.
 

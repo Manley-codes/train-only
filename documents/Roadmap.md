@@ -84,6 +84,8 @@ Status: In Progress
 - [ ] Connect the backend to MySQL through Spring-managed database access
 - [ ] Verify `GET /api/trainers/{trainerId}/clients` returns real database data
 - [ ] Add focused backend tests for the first endpoint/service path
+- [ ] Translate the approved package activation, session-consumption, package-overlap,
+  and expiration-resolution rules into backend contracts before package operations
 - [ ] Implement core trainer, client, package, payment, and session operations
 - [ ] Add validation, error handling, and authentication foundations
 - [ ] Design backend actions as safe tools that future agents can call
@@ -97,10 +99,14 @@ Status: In Progress
 - Keep workout plans lightweight
 - Validate workflows with realistic trainer scenarios
 - Test key workflows and early Business Health concepts with independent trainers
-- Include at least one useful agent-driven workflow in the first public release
-- Require trainer approval before the agent sends messages or changes business records
+- Add built-in operational automations for configured routine reminders and reliable
+  payment, package-expiration, and session-status events
+- Add the Operations Briefing as the first agent-driven workflow, using approved facts
+  to summarize current operations and prepare one prioritized follow-up
+- Allow configured standard reminder templates to send automatically; require approval
+  for AI-written messages and changes to business records
 
-### Stage 5 — Trainer Business Health V1
+### Stage 5 — Business Health V1
 - Add minimal trainer inputs: income goal and comfortable weekly capacity
 - Calculate effective session rate
 - Calculate future session obligation
@@ -116,7 +122,8 @@ Status: In Progress
 - Add the client-facing experience
 - Add secure one-time payments through a payment provider
 - Add recurring payments only after the manual payment workflow is reliable
-- Add package acknowledgment, reminders, and client transparency
+- Add package acknowledgment that can confirm commitment, plus reminders and client
+  transparency
 
 ### Stage 7 — Expanded Intelligence And AI
 - Add marketing ROI and lead-conversion tracking
@@ -132,6 +139,8 @@ Status: In Progress
 - Add AI-generated explanations after rule-based guidance is reliable
 - Expand specialist-agent capabilities and controlled autonomy
 - Add Chief-of-Staff-style coordination only after individual agents are reliable
+- Consider editable automation templates only after built-in workflows are validated;
+  do not prioritize a full automation builder
 
 | Agent | Responsibility |
 |-------|----------------|
