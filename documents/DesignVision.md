@@ -70,6 +70,18 @@ Train Only should do the same — the trainer should feel like a professional th
 - Capacity, committed sessions, income goals, and facility costs should be translated
   into a clear business story rather than displayed as raw data
 
+### Public Smart Inquiry Experience
+
+The future Smart Inquiry direction should feel simple outside and organized inside. Any
+public experience should be mobile-first, clearly disclosed as AI, limited to basic
+interest and logistics, and honest that the trainer decides the next step. Trust may
+already come from Instagram, a referral, or the trainer's real-world reputation; Train
+Only should not become a website builder.
+
+The trainer-facing review format—notification, calm inbox card, or small pipeline—must be
+validated. Avoid lead scores, transcript walls, and dense CRM behavior. See
+`SmartInquiry.md` for the accepted boundary and open design decisions.
+
 ---
 
 ## Emotional Design

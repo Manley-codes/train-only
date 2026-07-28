@@ -80,14 +80,20 @@ Status: In Progress
 
 - [x] Learn the purpose and structure of Spring Boot
 - [x] Create initial Java and Spring Boot backend scaffold
-- [ ] Verify the backend server starts cleanly
-- [ ] Connect the backend to MySQL through Spring-managed database access
-- [ ] Verify `GET /api/trainers/{trainerId}/clients` returns real database data
-- [ ] Add focused backend tests for the first endpoint/service path
+- [x] Verify the backend server starts and stops cleanly
+- [x] Connect the backend to MySQL through Spring-managed `JdbcClient` access
+- [x] Verify `GET /api/trainers/{trainerId}/clients` returns real database data
+- [x] Add and run focused backend tests for the first endpoint/service path
+- [ ] Complete final repository/document hygiene and intentionally commit the verified
+  backend foundation
 - [ ] Translate the approved package activation, session-consumption, package-overlap,
   and expiration-resolution rules into backend contracts before package operations
-- [ ] Implement core trainer, client, package, payment, and session operations
-- [ ] Add validation, error handling, and authentication foundations
+- [ ] Add validation and error-handling foundations and define authentication/tenant
+  ownership before exposing broad trainer operations
+- [ ] Establish versioned database migrations before the next schema change; do not keep
+  evolving a shared or production schema only through `CREATE TABLE IF NOT EXISTS`
+- [ ] Implement core trainer, client, package, payment, and session operations in small
+  slices; keep unauthenticated development endpoints local until ownership is enforced
 - [ ] Design backend actions as safe tools that future agents can call
 - [ ] Research and select an agent framework/provider based on tool use, approvals, privacy,
   evaluation, cost, and Java/Spring Boot integration
@@ -105,6 +111,9 @@ Status: In Progress
   to summarize current operations and prepare one prioritized follow-up
 - Allow configured standard reminder templates to send automatically; require approval
   for AI-written messages and changes to business records
+- During trainer validation, research or prototype how trainers review inbound interest.
+  Compare an inbox, notification, and small pipeline before accepting a manual inquiry
+  workflow. Do not add the public AI inquiry channel in this stage
 
 ### Stage 5 — Business Health V1
 - Add minimal trainer inputs: income goal and comfortable weekly capacity
@@ -127,6 +136,11 @@ Status: In Progress
 
 ### Stage 7 — Expanded Intelligence And AI
 - Add marketing ROI and lead-conversion tracking
+- If validation supports it, and after authentication, public security, privacy, and AI
+  fallback are reliable, add a Smart Inquiry Assistant. A Train Only-controlled text
+  link is the leading first experiment, not a locked platform decision
+- Treat native Instagram messaging, voice calls, and public testimonial or progress-media
+  retrieval as separate later integrations; do not bundle them into Smart Inquiry V1
 - Add recommendation history and business-plan updates
 - Add market and location analysis only with trustworthy source data
 - Add local affordability context using sourced median household income, geography,
@@ -147,7 +161,7 @@ Status: In Progress
 | Business Health Agent | Explains pricing, capacity, income, and future-session pressure |
 | Scheduling Agent | Detects conflicts and suggests workable session times |
 | Payment Agent | Flags unpaid balances and supports payment reminders |
-| Client Acquisition Agent | Helps analyze leads, follow-up, and marketing performance |
+| Client Acquisition Agent | Organizes trainer-owned inquiries and later helps analyze approved follow-up, source conversion, and marketing performance |
 | Plan Agent | Suggests workout plan adjustments based on client progress |
 
 ---

@@ -1,7 +1,7 @@
 # Trainer Business Fit Strategy
 
-**Version:** 0.1  
-**Last Updated:** June 2026  
+**Version:** 0.2
+**Last Updated:** July 2026
 **Status:** Approved product direction; implementation timing not yet selected
 
 ---
@@ -437,7 +437,7 @@ A future Business Runway Alert may consider:
 - Facility or fixed business cost due soon
 - Projected training revenue below the near-term operating target
 - Low active-client count
-- Weak lead or prospect pipeline
+- Weak inquiry or other warm-prospect pipeline
 - Unpaid balances that may be collectible
 - Available capacity for another client
 - Future-session obligations already owed
@@ -453,7 +453,7 @@ solve the pressure more safely.
 Possible responses should be evaluated in a responsible order:
 
 1. Review collectible unpaid balances.
-2. Follow up with existing interested leads.
+2. Follow up with existing interested inquiries or other warm prospects.
 3. Reconnect with appropriate past clients.
 4. Prepare a referral request for current clients.
 5. Review unused schedule capacity.
@@ -511,7 +511,8 @@ The workflow should develop in stages:
 2. **Suggested actions**
    - Offer a short list of safe, relevant options.
 3. **Templates**
-   - Prepare referral, lead follow-up, or past-client messages for trainer review.
+   - Prepare referral, warm-inquiry or prospect follow-up, or past-client messages for
+     trainer review.
 4. **Approved automation**
    - Run only workflows the trainer explicitly selects and approves.
 5. **Agent support**
@@ -538,13 +539,17 @@ Capacity available for 1 additional weekly client
 
 Possible Next Best Move:
 
-> Follow up on the unpaid balances first. If the gap remains, review three warm leads
+> Follow up on the unpaid balances first. If the gap remains, review three warm inquiries
 > before creating a new promotion.
 
 ### Why It Fits Train Only
 
 This workflow joins Business Health and Client Acquisition without turning
 either one into generic marketing automation.
+
+If validated later, the Smart Inquiry direction may provide reliable inbound source,
+contact-permission, and conversion data for this workflow. It should organize interest
+the trainer already received, not generate or purchase leads. See `SmartInquiry.md`.
 
 It can help prevent:
 

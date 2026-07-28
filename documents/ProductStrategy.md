@@ -227,12 +227,29 @@ when the app can calculate the answer from real activity.
 
 The working business flow is:
 
-> Possible client later → client record → package commitment → payments and scheduled
-> sessions → completed delivery → reliable business facts → Business Health → one Next
-> Best Move → trainer-approved action
+> Existing interest → optional inquiry and trainer review later → client record → package
+> commitment → payments and scheduled sessions → completed delivery → reliable business
+> facts → Business Health → one Next Best Move → trainer-approved action
 
-Prospect statuses remain a later decision. They do not block the reliable
-client-package-payment-session workflow.
+Not every client must enter through an inquiry. Trainers must still be able to add an
+existing client directly. The inquiry lifecycle and trainer-review experience remain
+later validation decisions and do not block the reliable client-package-payment-session
+workflow.
+
+### Smart Inquiry Direction
+
+Train Only has accepted a future **Smart Inquiry Assistant** as a focused possible entry
+into Client Acquisition. Its value is not the chatbot alone; it is turning interest the
+trainer already attracted into a trainer-owned record that may later connect source,
+conversion, capacity, and Business Health data.
+
+The interaction must stay short and trainer-controlled. It must not become a lead
+marketplace, website builder, medical intake, or autonomous closer. The exact public
+surface, trainer-review experience, lifecycle, and data model remain candidates to
+validate. The Operations Briefing remains the planned first agent-driven workflow.
+
+See `SmartInquiry.md` for the accepted boundary, candidate design, open decisions, and
+implementation gates.
 
 ### Package And Session Rules
 
@@ -252,7 +269,7 @@ client-package-payment-session workflow.
   obligation.
 
 These rules guide later package and session operations. They do not require reopening the
-completed database-foundation stage before the current backend scaffold is verified.
+completed database-foundation stage or the verified first backend foundation gate.
 
 ### HoneyBook Pattern Fit
 
@@ -300,10 +317,11 @@ The committed SQL includes realistic seed workflows, database safeguards, traine
 dashboard and client-history queries, multi-participant verification, and the files
 needed to recreate the current foundation when starting from an empty database.
 
-The active milestone is Stage 3 — Backend Foundation. Before expanding product scope,
-the uncommitted Spring Boot scaffold must be verified for clean startup, Spring-managed
-database-access design, a real MySQL connection, the first trainer-client endpoint, and
-focused tests.
+The active milestone is Stage 3 — Backend Foundation. The first Spring Boot foundation
+gate has been verified: Spring-managed database access, six focused test executions, an
+executable JAR, clean startup and shutdown, a real MySQL connection, and the first
+trainer-client endpoint all passed. The scaffold remains uncommitted while repository
+hygiene and documentation are reconciled.
 
 "Complete" here means the database meets the current foundation blueprint. It does not
 mean the persistence layer is production-final. Backend validation, authentication,
@@ -321,8 +339,8 @@ Business Health calculations.
 - **Private alpha or beta:** A limited release used with selected trainers for feedback.
 - **First public release:** The first version offered to real customers. It should include
   at least one useful agent-driven workflow.
-- **Feature V1:** The first usable version of one feature, such as Trainer Business
-  Health. A feature V1 does not automatically mean the entire product's public V1.
+- **Feature V1:** The first usable version of one feature, such as Business Health. A
+  feature V1 does not automatically mean the entire product's public V1.
 
 ---
 
@@ -449,7 +467,7 @@ Preserve these ideas, but do not place them in the first release:
 - Trainer stages such as Starting Out or Busy but Unstable
 - Recommendation history
 - Accepted, rejected, modified, and completed recommendation states
-- Marketing spend, leads, conversions, conversion rate, and acquisition cost
+- Marketing spend, inquiries or leads, conversions, conversion rate, and acquisition cost
 - Retention analysis
 - Location-aware market comparisons with source dates and confidence
 - Local affordability context using sourced median household income for the trainer's
@@ -483,7 +501,7 @@ session obligation, capacity, and income guidance are reliable.
 ### Save For Later
 
 - Automated payments
-- Broader lead and marketing intelligence
+- Smart Inquiry public assistant and broader inquiry, lead, and marketing intelligence
 - Market-rate research
 - Recommendation history
 - Advanced AI assistance

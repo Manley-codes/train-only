@@ -1,17 +1,29 @@
 # Train Only — Database Design
-**Version:** 0.1
-**Last Updated:** June 2026
+**Version:** 0.2
+**Last Updated:** July 2026
 
 ---
 
 ## Overview
 
-Eight active tables. Prospects and measurements are planned for later.
+Eight active tables. A future inquiry model and measurements remain unresolved later
+possibilities; neither is part of the active schema.
 Records connect back to the trainer directly or through client/package relationships.
 
 ---
 
 ## Table Relationships
+
+- One trainer can have many clients, sessions, and workout plans.
+- One client can have many packages, payments, workout plans, and session-participant
+  records.
+- One package belongs to one client and can be referenced by payments and
+  session-participant records.
+- One session can have one or more session participants.
+- One workout plan belongs to one trainer and one client and can have many plan days.
+- Future inquiry relationships are not approved and are intentionally excluded from the
+  active relationship map.
+
 ---
 
 ## Tables
@@ -23,7 +35,7 @@ Records connect back to the trainer directly or through client/package relations
 | first_name | VARCHAR(50) | |
 | last_name | VARCHAR(50) | |
 | email | VARCHAR(100) | Unique |
-| password_hash | VARCHAR(255) | Encrypted |
+| password_hash | VARCHAR(255) | One-way password hash |
 | phone | VARCHAR(20) | |
 | created_at | DATETIME | |
 
@@ -37,34 +49,31 @@ Records connect back to the trainer directly or through client/package relations
 | first_name | VARCHAR(50) | |
 | last_name | VARCHAR(50) | |
 | email | VARCHAR(100) | Unique |
-| password_hash | VARCHAR(255) | Encrypted |
+| password_hash | VARCHAR(255) | One-way password hash |
 | phone | VARCHAR(20) | |
 | date_of_birth | DATE | Used to calculate age |
 | profile_picture_url | VARCHAR(255) | Link to stored image |
 | created_at | DATETIME | |
 
+**Open identity decision:** the active schema currently gives each client one trainer
+and treats client email as globally unique. Before converting inquiries into clients,
+decide whether one person may have separate trainer relationships or one shared Train
+Only identity connected to multiple trainers. Do not let the inquiry workflow make this
+decision accidentally.
+
 ---
 
-### prospects (planned later)
-| Column | Type | Notes |
-|--------|------|-------|
-| prospect_id | INT | Primary key |
-| trainer_id | INT | Foreign key → trainers |
-| first_name | VARCHAR(50) | |
-| last_name | VARCHAR(50) | |
-| age | INT | |
-| email | VARCHAR(100) | Optional |
-| phone | VARCHAR(20) | Optional |
-| location | VARCHAR(255) | |
-| source | VARCHAR(100) | Instagram, Referral, Thumbtack, etc |
-| training_location_preference | VARCHAR(20) | gym, home, outdoor, flexible |
-| training_type_preference | VARCHAR(20) | solo or group |
-| free_trial_offered | BOOLEAN | Default false |
-| last_contacted_date | DATE | |
-| next_followup_date | DATE | |
-| status | VARCHAR(20) | active, converted, unresponsive, not_interested |
-| notes | TEXT | |
-| created_at | DATETIME | |
+### Future inquiry model (not in the active schema; design unresolved)
+
+Use **inquiry** as the working term for interest that a trainer has not deliberately
+converted into a client. The manual workflow, trainer-review experience, lifecycle,
+retention need, and public channel must be validated before approving tables or columns.
+
+Candidate information needs—including source, contact permission, basic training
+interest, timing, broad availability, trainer review, and conversion outcome—are kept in
+`SmartInquiry.md`. They are planning inputs, not an approved schema. Detailed health
+history, arbitrary lead scores, and free-trial sales fields are outside the accepted
+first-inquiry boundary.
 
 ---
 
@@ -79,6 +88,7 @@ Records connect back to the trainer directly or through client/package relations
 | package_cost | DECIMAL(10,2) | |
 | locked_rate | BOOLEAN | Keeps price fixed for returning clients |
 | status | VARCHAR(20) | active, expired, completed |
+| created_at | DATETIME | |
 
 ---
 
@@ -168,6 +178,7 @@ Example:
 | day_number | INT | Flexible routine order, e.g. Day 1, Day 2 |
 | routine_focus | VARCHAR(100) | Upper Body, Lower Body, Full Body, or custom |
 | details | TEXT | Significant notes only |
+| created_at | DATETIME | |
 
 ---
 

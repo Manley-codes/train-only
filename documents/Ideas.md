@@ -1,7 +1,7 @@
 # Train Only
-### Personal Trainer Management App
-**Version:** 0.1 (Draft)
-**Last Updated:** June 2026
+### Trainer Business Management And Guidance System
+**Version:** 0.2 (Draft)
+**Last Updated:** July 2026
 **Status:** In Planning
 
 ---
@@ -28,17 +28,26 @@ full-time and part-time/side-gig personalization, realistic capacity, income goa
 facility costs, local affordability context, tailored dashboards, and the psychological
 goal of reducing the trainer's mental load without becoming a life-management app.
 
+The accepted future inbound-inquiry direction is documented in `SmartInquiry.md`. Exact
+channels, workflow, and implementation timing remain open and require validation.
+
 ---
 
 # SECTION 1 — IDEAS
 
-## The Two Users
+## Product Participants
 
 ### Trainer (Primary User)
 The personal trainer who owns and manages the app. Has full access to all features.
 
 ### Client (Secondary User)
 The trainer's client. Has a limited, read-focused view of their own data only.
+
+### Potential Client (Future Public Participant, Not An Account User)
+A person who may later reach a trainer through a Smart Inquiry path. The accepted
+direction avoids requiring an app download or Train Only account for a short inquiry and
+never grants access to trainer or client data. Exact surface and conversion behavior are
+still design decisions.
 
 ---
 
@@ -51,7 +60,7 @@ These pillars are derived from real problems experienced as a working personal t
 | 1 | Scheduling & Notifications | Verbal agreements forgotten, sessions missed, no reliable alerts |
 | 2 | Payment Management | No unified system, third-party blocks, chasing payments manually |
 | 3 | Workout Plan Management | Plans scattered across notes apps, no per-client organization |
-| 4 | Client Acquisition | Expensive ads, poor ROI, no guidance on outreach messaging |
+| 4 | Client Acquisition | Interest arrives through scattered channels, inquiries are missed or incomplete, and source-to-client results are unclear |
 | 5 | Session Transparency | Clients unaware of package terms and expiration rules |
 | 6 | Session Tracking | Disputes over remaining sessions, no single source of truth |
 | 7 | Trainer Sustainability | Trainers overwork, undercharge, and lack clear income targets |
@@ -62,7 +71,10 @@ These pillars are derived from real problems experienced as a working personal t
 
 These are saved for future versions once the core app is complete.
 
-- Client Progress Gallery (before/after photos and videos per client)
+- Client Progress Gallery (before/after photos and videos per client). Keep private by
+  default. Public promotional use or retrieval through Smart Inquiry requires a
+  separate trainer-selected, client-authorized media workflow and is not part of the
+  assistant's first public version
 - In-app video workouts
 - Wearable device integration
 - Nutrition tracking

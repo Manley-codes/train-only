@@ -1,11 +1,11 @@
 # Train Only — Direction (North Star)
 
-**Version:** 1.1 (draft, in review)
-**Last Updated:** June 2026
+**Version:** 1.2 (draft, in review)
+**Last Updated:** July 2026
 **Status:** Canonical working draft. Start here. Reflects the direction walkthrough with
 Manley in June 2026. It sits *above* the detail docs so the direction can't be forgotten
-or contradicted again. This is the **only** file created in that walkthrough — every
-original document is unchanged.
+or contradicted again. The original detail documents remain in place and are updated
+deliberately as later decisions are accepted.
 
 ---
 
@@ -128,6 +128,17 @@ from. These are the antidote — and they're what make staying agile *safe*:
   consider taking a break." It analyzes the trainer's own results; it does not go get
   leads.
 
+**Smart Inquiry Assistant — ACCEPTED for later; not a current build task**
+- Train Only may later turn trainer-owned interest from Instagram, referrals, QR codes,
+  text, or another channel into a short inquiry and a useful business record.
+- The potential-client experience stays intentionally small. The trainer owns the
+  relationship and decides what happens next.
+- This is not a lead marketplace, website builder, health intake, or autonomous sales
+  system. Exact channels, trainer-review experience, lifecycle, and data model remain
+  candidates to validate.
+- See `SmartInquiry.md` for the accepted boundary, candidate design, open decisions, and
+  implementation gates.
+
 **Parks / outdoor training**
 - Suggest outdoor/low-cost options as real possibilities; remind the trainer to check
   local permit rules; let them decide and report back. Benefit leads, risk is weighed — one
@@ -142,10 +153,13 @@ from. These are the antidote — and they're what make staying agile *safe*:
 
 - Build order is unchanged: reliable data → exact measures → one Next Best Move → agents on
   top of trustworthy tools.
-- The current foundation (8 tables, backend Stage 3) is correct and keeps going. Nothing in
-  today's direction work changes your immediate next step.
+- The eight-table database foundation is committed. The first Stage 3 backend foundation
+  gate is verified and awaiting final repository/document hygiene and an intentional
+  commit before package and session work continues.
 - Business Health, full/part-time personalization, facility costs, capacity,
   income-goal scenarios, Business Runway — all still valid, all still later.
+- Smart Inquiry is accepted as a future Client Acquisition and Business Health input. It
+  does not displace the Operations Briefing as the planned first agent workflow.
 - This work *names and bounds* something already implied across `ProductStrategy.md`,
   `TrainerBusinessFit.md`, and `Features.md`. It did not replace them.
 
@@ -155,6 +169,8 @@ from. These are the antidote — and they're what make staying agile *safe*:
 
 - `ProductStrategy.md` — full product thesis, agent architecture, Business Health V1.
 - `TrainerBusinessFit.md` — full/part-time modes, capacity, facility costs, Business Runway.
+- `SmartInquiry.md` — accepted future inbound-inquiry assistant, limits, data direction,
+  validation, and staged delivery.
 - `Features.md` — the seven pillars and screen list.
 - `Roadmap.md` — stages and platform plan.
 - `DesignVision.md` — look and feel ("most professional operation in the room").

@@ -26,5 +26,12 @@ bin/
 ### VS Code ###
 .vscode/
 
+### Maven ###
+target/
+.m2/
+
+### Local application config ###
+application-local.properties
+
 ### Mac OS ###
 .DS_Store

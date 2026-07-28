@@ -15,7 +15,8 @@ Current uncommitted work expected:
 
 - `.gitignore`
 - `backend/`
-- this restart handoff and related documentation cleanup
+- accepted Smart Inquiry direction in `documents/SmartInquiry.md` and alignment updates
+  across the strategy, feature, roadmap, data, design, and handoff documents
 
 Do not include in commits:
 
@@ -51,6 +52,17 @@ advise from recorded facts and calculations, not throw generic motivational tips
 or a wall of options at the trainer.
 
 Train Only should manage, record, warn, and advise. The trainer decides.
+
+Accepted future direction:
+
+- `SmartInquiry.md` defines a later trainer-owned path from existing interest to a
+  structured inquiry inside Train Only. Exact surface, workflow, lifecycle, and data
+  model remain validation decisions.
+- It is not a lead marketplace, general trainer website or website builder, medical
+  intake, or current build task. Manual workflow validation, authentication, public
+  security, privacy, and AI fallback come before any public assistant.
+- This direction does not change the current Stage 3 task or replace the Operations
+  Briefing as the planned first agent workflow.
 
 ---
 
@@ -91,7 +103,7 @@ The database was rebuilt and verified from the project SQL files.
 
 ## Where We Left Off
 
-The uncommitted `backend/` folder contains an early Spring Boot scaffold.
+The uncommitted `backend/` folder contains the verified first Spring Boot foundation.
 
 Known backend shape:
 
@@ -112,22 +124,24 @@ GET /api/trainers/{trainerId}/clients
 
 What has been verified:
 
-- The backend structure previously compiled through Maven.
+- IntelliJ's bundled Maven completed `clean verify` successfully.
+- Six focused controller/service test executions passed.
+- The packaged JAR is an executable Spring Boot JAR.
+- Spring Boot started and stopped cleanly on port 8080.
+- Spring supplied the managed database access successfully.
+- The backend connected to local MySQL `train_only_db`.
+- `GET /api/trainers/1/clients` returned HTTP 200 with Marcus Johnson followed by Alicia
+  Taylor and the expected five response fields.
+- The verification process stopped cleanly and released port 8080.
+- No password is stored in tracked project files.
 
-What has not been fully verified:
+Current database-access direction:
 
-- Spring Boot server starts cleanly.
-- Spring context loads correctly.
-- Backend connects to MySQL.
-- `GET /api/trainers/1/clients` returns real seeded client data.
-
-Important concern:
-
-- `ClientRepository` currently uses raw `DriverManager` JDBC. Before committing
-  the backend scaffold, decide whether to replace it with Spring-managed database
-  access such as `DataSource` plus `JdbcClient` or `JdbcTemplate`. The first
-  backend pattern matters because packages, sessions, payments, and dashboard
-  endpoints will likely follow it.
+- `ClientRepository` now uses Spring-managed `JdbcClient`, not raw `DriverManager`.
+  The live application verified this pattern successfully; it is acceptable to copy in
+  later small backend slices.
+- Establish versioned database migrations before the next schema change. The active
+  eight-table SQL foundation remains unchanged for now.
 
 ---
 
@@ -137,30 +151,21 @@ Do not start new features yet.
 
 Next task:
 
-**Verify and clean up the Spring Boot backend foundation before committing it.**
+**Finish repository/document hygiene and intentionally commit the verified backend
+foundation without starting a new feature.**
 
 Done means:
 
 - `.gitignore` excludes local/build artifacts.
-- Backend builds successfully.
-- Spring Boot server starts.
-- Database credentials are handled through local config or environment values,
-  not committed secrets.
-- Backend connects to local MySQL `train_only_db`.
-- `GET /api/trainers/1/clients` returns the seeded clients.
-- The repository/data-access pattern is acceptable to copy for the next backend
-  features.
 - Generated folders and local IDE settings stay out of git.
+- Documents accurately record the completed backend gate and keep Smart Inquiry future.
+- The final diff contains only intended backend, repository-hygiene, and document work.
+- Backend and strategy/document changes are reviewed as intentional commit groups.
+- Nothing is committed or pushed until Manley approves the exact staging commands.
 
-Recommended CLI prompt:
-
-```text
-Review the uncommitted backend scaffold and .gitignore. Do not commit yet.
-Explain the current Spring Boot structure, verify the build, verify server
-startup, verify MySQL connection, and test GET /api/trainers/1/clients. Recommend
-whether to refactor ClientRepository from raw DriverManager to Spring-managed
-DataSource + JdbcClient/JdbcTemplate before committing.
-```
+After that commit, the next actual backend task is to translate the approved package
+activation, session-consumption, package-overlap, and expiration-resolution rules into
+backend contracts before package operations. Smart Inquiry remains future work.
 
 ---
 
@@ -214,6 +219,8 @@ Learning check:
 Please review the repo first, especially documents/Direction.md,
 documents/Roadmap.md, and documents/CodexCliHandoff.md. Check git status before
 making changes. We are restarting Train Only in a cleaner, more professional
-workflow. Current goal: verify and clean up the uncommitted Spring Boot backend
-foundation before committing it. Do not start new features yet.
+workflow. The first backend foundation gate has already passed. Current goal:
+finish repository/document hygiene, review the uncommitted diff, and prepare
+intentional staging commands for approval. Do not repeat completed verification
+unless relevant files changed, and do not start new features yet.
 ```

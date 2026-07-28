@@ -68,26 +68,51 @@
 
 ## Pillar 4 — Client Acquisition
 
-**Trainer can:**
-- Access pre-written outreach message templates (editable)
-- Log a prospect (potential client) with contact info and status
-- Track prospect status (e.g. Contacted → Interested → Converted → Declined)
-- See a simple pipeline view of all prospects
+**Candidate manual foundation (validate before implementation):**
+- Record an inbound inquiry manually with contact permission, source, stated training
+  interest, timing, and broad availability
+- Test whether trainers prefer a focused inbox, a notification with a summary, or a small
+  pipeline for new and unresolved inquiries
+- Record the trainer-controlled next step
+- Test a small lifecycle such as New → Reviewed → Contacted → Converted or Closed
+- Convert an accepted inquiry into a client without silently treating every inquiry as a
+  client
 
-**AI Agent (future):**
-- Suggest personalized outreach messages based on prospect info
-- Recommend follow-up timing
-- Analyze which acquisition approaches have the best conversion rate
+**Smart Inquiry Assistant (accepted future direction; not current implementation):**
+- Test a short, account-free path that can be shared from Instagram, a referral, a QR
+  code, text, or another existing source of interest
+- Use a short, disclosed AI conversation to collect basic training interest, format,
+  timing, availability, preferred contact, and permission to follow up
+- Turn the conversation into a concise factual inquiry summary inside Train Only
+- Preserve a basic non-AI intake path if the model is unavailable
+
+**Later acquisition intelligence:**
+- Suggest trainer-reviewed follow-up messages for an existing inquiry
+- Recommend follow-up timing when the recorded facts support it
+- Analyze inquiry sources, conversion, and later client value
+- Connect warm-inquiry follow-up to Business Runway only when capacity, pricing, unpaid
+  balances, and trainer preferences make acquisition a responsible next move
 
 **Notes:**
-- This pillar benefits the most from the AI agent layer
-- The early acquisition workflow will be manual with smart templates
-- Goal is to help trainers who are not naturally strong at sales
+- The early acquisition workflow should be manual and deliberately smaller than a
+  generic CRM pipeline
+- Broad cold-outreach template libraries are a low-priority hypothesis. Validate focused
+  future templates for warm inquiries, other appropriate warm prospects, past-client
+  reactivation, and trainer-controlled referral requests first
+- The assistant organizes interest the trainer already attracted. It does not find,
+  purchase, distribute, or sell leads
+- The potential-client conversation should remain short. Detailed health screening,
+  fitness planning, pricing negotiation, and the real consultation belong later with the
+  trainer
+- Do not assign arbitrary seriousness or lead-quality scores
+- Native Instagram messaging, voice calls, and public testimonials or progress media are
+  separate later capabilities, not part of the first public version
 - Future Business Runway workflows may activate lead follow-up, past-client
   reactivation, or referral templates when fixed-cost pressure is detected
 - Client acquisition should not activate automatically when collecting unpaid balances,
   reviewing costs, or protecting capacity would be safer
 - Messages and campaigns require trainer review and approval
+- See `SmartInquiry.md` for the canonical feature boundary and staged direction
 
 ---
 
@@ -235,7 +260,7 @@ one of the main outcomes the feature is intended to protect.
 - Add / Edit Session
 - Weekly Routine Planner
 - Payment Log
-- Prospect Pipeline
+- Inquiry review surface (candidate: inbox, notification, or small pipeline)
 - Notifications / Alerts
 - Settings
 
@@ -245,5 +270,12 @@ one of the main outcomes the feature is intended to protect.
 - My Workout Plan
 - My Payment History
 - Profile / Settings
+
+### Future Public Surface
+- Smart Inquiry candidate (short mobile-first conversation; no account required)
+
+The exact public surface remains an open decision. Any accepted version is not a general
+trainer website or a third full app; it must connect through a deliberately limited
+public backend boundary and produce an inquiry for the trainer to review.
 
 ---
