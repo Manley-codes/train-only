@@ -11,12 +11,16 @@
   - `clarify Next Best Move business pressure guidance`
   - `refresh Train Only restart handoff`
 
-Current uncommitted work expected:
+Current checkpoint work may include:
 
-- `.gitignore`
-- `backend/`
-- accepted Smart Inquiry direction in `documents/SmartInquiry.md` and alignment updates
-  across the strategy, feature, roadmap, data, design, and handoff documents
+- `.gitignore` repository-hygiene updates
+- the verified `backend/` foundation
+- `documents/SmartInquiry.md`, the canonical file referenced by the already-committed
+  Smart Inquiry alignment
+
+Always trust the live `git status` before staging. This checkpoint list records the work
+area; it is not a permanent staging manifest and may become historical after later
+commits.
 
 Do not include in commits:
 
